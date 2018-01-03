@@ -130,6 +130,13 @@ talk_ideas:
   defaults:
     template: ideas.twig
 
+coc:
+  path: /coc
+  methods: [GET]
+  controller: FrameworkBundle:Template:template
+  defaults:
+    template: coc.twig
+
 dashboard:
   path: /dashboard
   methods: [GET]

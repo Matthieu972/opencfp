@@ -1,0 +1,29 @@
+.bg-brand {
+	background-color: #24934a;
+}
+
+.border-brand {
+	border-color: #24934a;
+}
+
+.btn-brand-o {
+	border-color: #24934a;
+	color: #24934a;
+}
+
+.text-brand {
+	color: #24934a;
+}
+
+.w-11 {
+	width: 6.5em;
+}
+
+.flex-menu {
+	margin-right: 90px;
+}
+
+.w-margin {
+	margin-left: 25px;
+	margin-right: 25px;
+}
