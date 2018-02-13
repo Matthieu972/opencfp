@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -35,7 +35,7 @@ final class TwigGlobalsListenerTest extends TestCase
      */
     public function testGlobals(Authentication $authentication, bool $isOpen, string $uri, string $flash = null, string $fixture)
     {
-        $twig    = new Twig_Environment(new \Twig_Loader_Filesystem(__DIR__ . '/Fixtures'));
+        $twig = new Twig_Environment(new \Twig_Loader_Filesystem(__DIR__.'/Fixtures'));
         $session = new Session(new MockArraySessionStorage());
 
         if ($flash !== null) {
@@ -58,7 +58,7 @@ final class TwigGlobalsListenerTest extends TestCase
 
         $output = $twig->render('globals.txt.twig');
 
-        $this->assertStringEqualsFile(__DIR__ . '/Fixtures/' . $fixture, $output);
+        $this->assertStringEqualsFile(__DIR__.'/Fixtures/'.$fixture, $output);
     }
 
     public function provideTestSetup(): array

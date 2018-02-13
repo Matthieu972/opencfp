@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -51,9 +51,9 @@ class TwigGlobalsListener implements EventSubscriberInterface
         Twig_Environment $twig
     ) {
         $this->authentication = $authentication;
-        $this->callForPapers  = $callForPapers;
-        $this->twig           = $twig;
-        $this->session        = $session;
+        $this->callForPapers = $callForPapers;
+        $this->twig = $twig;
+        $this->session = $session;
     }
 
     public static function getSubscribedEvents()

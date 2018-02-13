@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -51,20 +51,20 @@ abstract class Form
     public function __construct(array $data, \HTMLPurifier $purifier, array $options = [])
     {
         $this->purifier = $purifier;
-        $this->options  = $options;
+        $this->options = $options;
 
         $this->populate($data);
     }
 
     /**
-     * Populates the form with default data, clears previously set sanitized data
+     * Populates the form with default data, clears previously set sanitized data.
      *
      * @param array $data
      */
     public function populate(array $data)
     {
         $this->taintedData = $data;
-        $this->cleanData   = null;
+        $this->cleanData = null;
     }
 
     /**
@@ -81,13 +81,13 @@ abstract class Form
 
     /**
      * Method that validates that we have all required
-     * fields in our submitted data
+     * fields in our submitted data.
      *
      * @return bool
      */
     public function hasRequiredFields(): bool
     {
-        $dataKeys    = \array_keys($this->taintedData);
+        $dataKeys = \array_keys($this->taintedData);
         $foundFields = \array_intersect($this->fieldList, $dataKeys);
 
         return $foundFields == $this->fieldList;
@@ -186,7 +186,7 @@ abstract class Form
 
     /**
      * Method that adds error message to our class attribute, making sure to
-     * not add anything that is in there already
+     * not add anything that is in there already.
      *
      * @param string $message The error messages to add to the list
      */
@@ -198,7 +198,7 @@ abstract class Form
     }
 
     /**
-     * Method that sanitizes all data
+     * Method that sanitizes all data.
      */
     public function sanitize()
     {

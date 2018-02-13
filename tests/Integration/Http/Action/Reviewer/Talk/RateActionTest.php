@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -35,7 +35,7 @@ final class RateActionTest extends WebTestCase implements TransactionalTestCase
 
         $response = $this
             ->asReviewer($reviewer->id)
-            ->post('/reviewer/talks/' . $talk->id . '/rate', [
+            ->post('/reviewer/talks/'.$talk->id.'/rate', [
                 'rating' => $rating,
             ]);
 
@@ -72,7 +72,7 @@ final class RateActionTest extends WebTestCase implements TransactionalTestCase
 
         $response = $this
             ->asReviewer($reviewer->id)
-            ->post('/reviewer/talks/' . $talk->id . '/rate', [
+            ->post('/reviewer/talks/'.$talk->id.'/rate', [
                 'rating' => $rating,
             ]);
 

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -142,7 +142,7 @@ final class UpdatePasswordActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId   = $faker->numberBetween(1);
+        $userId = $faker->numberBetween(1);
         $password = $faker->password();
 
         $request = $this->prophesize(HttpFoundation\Request::class);
@@ -167,9 +167,9 @@ final class UpdatePasswordActionTest extends Framework\TestCase
             ->getData()
             ->shouldBeCalled()
             ->willReturn([
-                'user_id'    => $userId,
+                'user_id' => $userId,
                 'reset_code' => $resetCode,
-                'password'   => $password,
+                'password' => $password,
             ]);
 
         $action = new UpdatePasswordAction(
@@ -187,12 +187,12 @@ final class UpdatePasswordActionTest extends Framework\TestCase
     public function providerEmptyResetCode(): array
     {
         $values = [
-            'array-empty'  => [],
-            'bool-false'   => false,
-            'int-zero'     => 0,
-            'null'         => null,
+            'array-empty' => [],
+            'bool-false' => false,
+            'int-zero' => 0,
+            'null' => null,
             'string-empty' => '',
-            'string-zero'  => '0',
+            'string-zero' => '0',
         ];
 
         return \array_map(function ($value) {
@@ -206,9 +206,9 @@ final class UpdatePasswordActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId    = $faker->numberBetween(1);
+        $userId = $faker->numberBetween(1);
         $resetCode = $faker->sha256;
-        $password  = $faker->password();
+        $password = $faker->password();
 
         $url = $faker->url;
 
@@ -218,9 +218,9 @@ final class UpdatePasswordActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Error',
-                    'ext'   => 'Please select a different password than your current one.',
+                    'ext' => 'Please select a different password than your current one.',
                 ])
             )
             ->shouldBeCalled();
@@ -252,9 +252,9 @@ final class UpdatePasswordActionTest extends Framework\TestCase
             ->getData()
             ->shouldBeCalled()
             ->willReturn([
-                'user_id'    => $userId,
+                'user_id' => $userId,
                 'reset_code' => $resetCode,
-                'password'   => $password,
+                'password' => $password,
             ]);
 
         $user = $this->prophesize(Auth\UserInterface::class);
@@ -297,9 +297,9 @@ final class UpdatePasswordActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId    = $faker->numberBetween(1);
+        $userId = $faker->numberBetween(1);
         $resetCode = $faker->sha256;
-        $password  = $faker->password();
+        $password = $faker->password();
 
         $url = $faker->url;
 
@@ -309,9 +309,9 @@ final class UpdatePasswordActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Error',
-                    'ext'   => 'Password reset failed, please contact the administrator.',
+                    'ext' => 'Password reset failed, please contact the administrator.',
                 ])
             )
             ->shouldBeCalled();
@@ -342,9 +342,9 @@ final class UpdatePasswordActionTest extends Framework\TestCase
             ->getData()
             ->shouldBeCalled()
             ->willReturn([
-                'user_id'    => $userId,
+                'user_id' => $userId,
                 'reset_code' => $resetCode,
-                'password'   => $password,
+                'password' => $password,
             ]);
 
         $user = $this->prophesize(Auth\UserInterface::class);
@@ -395,9 +395,9 @@ final class UpdatePasswordActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId    = $faker->numberBetween(1);
+        $userId = $faker->numberBetween(1);
         $resetCode = $faker->sha256;
-        $password  = $faker->password();
+        $password = $faker->password();
 
         $url = $faker->url;
 
@@ -407,9 +407,9 @@ final class UpdatePasswordActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'success',
+                    'type' => 'success',
                     'short' => 'Success',
-                    'ext'   => "You've successfully reset your password.",
+                    'ext' => "You've successfully reset your password.",
                 ])
             )
             ->shouldBeCalled();
@@ -441,9 +441,9 @@ final class UpdatePasswordActionTest extends Framework\TestCase
             ->getData()
             ->shouldBeCalled()
             ->willReturn([
-                'user_id'    => $userId,
+                'user_id' => $userId,
                 'reset_code' => $resetCode,
-                'password'   => $password,
+                'password' => $password,
             ]);
 
         $user = $this->prophesize(Auth\UserInterface::class);

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -42,8 +42,8 @@ final class ChangePasswordProcessAction
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
         $this->authentication = $authentication;
-        $this->purifier       = $purifier;
-        $this->urlGenerator   = $urlGenerator;
+        $this->purifier = $purifier;
+        $this->urlGenerator = $urlGenerator;
     }
 
     public function __invoke(HttpFoundation\Request $request): HttpFoundation\Response
@@ -52,10 +52,10 @@ final class ChangePasswordProcessAction
 
         /**
          * Okay, the logic is kind of weird but we can use the SignupForm
-         * validation code to make sure our password changes are good
+         * validation code to make sure our password changes are good.
          */
         $formData = [
-            'password'  => $request->get('password'),
+            'password' => $request->get('password'),
             'password2' => $request->get('password_confirm'),
         ];
 
@@ -68,9 +68,9 @@ final class ChangePasswordProcessAction
 
         if (!$form->validatePasswords()) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => \implode('<br>', $form->getErrorMessages()),
+                'ext' => \implode('<br>', $form->getErrorMessages()),
             ]);
 
             $url = $this->urlGenerator->generate('password_edit');
@@ -78,14 +78,14 @@ final class ChangePasswordProcessAction
             return new HttpFoundation\RedirectResponse($url);
         }
 
-        $resetCode     = $user->getResetPasswordCode();
+        $resetCode = $user->getResetPasswordCode();
         $sanitizedData = $form->getCleanData();
 
         if (!$user->attemptResetPassword($resetCode, $sanitizedData['password'])) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'Unable to update your password in the database. Please try again.',
+                'ext' => 'Unable to update your password in the database. Please try again.',
             ]);
 
             $url = $this->urlGenerator->generate('password_edit');
@@ -94,9 +94,9 @@ final class ChangePasswordProcessAction
         }
 
         $request->getSession()->set('flash', [
-            'type'  => 'success',
+            'type' => 'success',
             'short' => 'Success',
-            'ext'   => 'Changed your password.',
+            'ext' => 'Changed your password.',
         ]);
 
         $url = $this->urlGenerator->generate('password_edit');

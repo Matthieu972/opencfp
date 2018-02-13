@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -18,7 +18,7 @@ use OpenCFP\Domain\Model\Talk;
 class TalkFilter
 {
     /**
-     * Column Sort By White List
+     * Column Sort By White List.
      *
      * @var array
      */
@@ -42,7 +42,7 @@ class TalkFilter
     public function __construct(TalkFormatter $talkFormatter, Talk $talk)
     {
         $this->formatter = $talkFormatter;
-        $this->talk      = $talk;
+        $this->talk = $talk;
     }
 
     public function getTalks(int $adminUserId, $filter = null, $options = []): array
@@ -52,7 +52,7 @@ class TalkFilter
             $options,
             [
                 'order_by' => 'created_at',
-                'sort'     => 'ASC',
+                'sort' => 'ASC',
             ]
         );
 
@@ -96,7 +96,7 @@ class TalkFilter
     }
 
     /**
-     * Get sorting options, order_by and sort direction
+     * Get sorting options, order_by and sort direction.
      *
      * @param array $options        Sorting Options to Apply
      * @param array $defaultOptions Default Sorting Options

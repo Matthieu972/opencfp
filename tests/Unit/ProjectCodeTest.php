@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -29,7 +29,7 @@ final class ProjectCodeTest extends Framework\TestCase
     public function testProductionClassesHaveUnitTests()
     {
         $this->assertClassesHaveTests(
-            __DIR__ . '/../../classes',
+            __DIR__.'/../../classes',
             'OpenCFP\\',
             'OpenCFP\\Test\\Unit\\',
             [
@@ -82,7 +82,7 @@ final class ProjectCodeTest extends Framework\TestCase
 
         $this->assertEmpty($actionsWithoutReturnTypes, \sprintf(
             "Failed asserting that the controller actions\n\n%s\n\ndeclare \"%s\" as return type.",
-            ' - ' . \implode("\n - ", $actionsWithoutReturnTypes),
+            ' - '.\implode("\n - ", $actionsWithoutReturnTypes),
             HttpFoundation\Response::class
         ));
     }
@@ -95,7 +95,7 @@ final class ProjectCodeTest extends Framework\TestCase
 
         $this->assertEmpty($actionsWithoutSuffix, \sprintf(
             "Failed asserting that the controller actions\n\n%s\n\nuse  \"Action\" as suffix.",
-            ' - ' . \implode("\n - ", $actionsWithoutSuffix)
+            ' - '.\implode("\n - ", $actionsWithoutSuffix)
         ));
     }
 
@@ -104,7 +104,7 @@ final class ProjectCodeTest extends Framework\TestCase
      */
     private function controllerActions(): array
     {
-        $constructs = Classy\Constructs::fromDirectory(__DIR__ . '/../../classes/Http/Controller');
+        $constructs = Classy\Constructs::fromDirectory(__DIR__.'/../../classes/Http/Controller');
 
         $actions = [];
 
@@ -149,7 +149,7 @@ final class ProjectCodeTest extends Framework\TestCase
 
     public function testTestClassesAreAbstractOrFinal()
     {
-        $this->assertClassesAreAbstractOrFinal(__DIR__ . '/..');
+        $this->assertClassesAreAbstractOrFinal(__DIR__.'/..');
     }
 
     /**
@@ -165,7 +165,7 @@ final class ProjectCodeTest extends Framework\TestCase
     public function providerProductionClassesAreAbstractOrFinal(): array
     {
         $directories = [
-            'http-actions' => __DIR__ . '/../../classes/Http/Action',
+            'http-actions' => __DIR__.'/../../classes/Http/Action',
         ];
 
         return \array_map(function (string $directory) {

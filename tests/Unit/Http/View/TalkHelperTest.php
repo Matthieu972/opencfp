@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -30,18 +30,18 @@ final class TalkHelperTest extends Framework\TestCase
         );
 
         $defaultCategories = [
-            'api'                => 'APIs (REST, SOAP, etc.)',
+            'api' => 'APIs (REST, SOAP, etc.)',
             'continuousdelivery' => 'Continuous Delivery',
-            'database'           => 'Database',
-            'development'        => 'Development',
-            'devops'             => 'Devops',
-            'framework'          => 'Framework',
-            'ibmi'               => 'IBMi',
-            'javascript'         => 'JavaScript',
-            'security'           => 'Security',
-            'testing'            => 'Testing',
-            'uiux'               => 'UI/UX',
-            'other'              => 'Other',
+            'database' => 'Database',
+            'development' => 'Development',
+            'devops' => 'Devops',
+            'framework' => 'Framework',
+            'ibmi' => 'IBMi',
+            'javascript' => 'JavaScript',
+            'security' => 'Security',
+            'testing' => 'Testing',
+            'uiux' => 'UI/UX',
+            'other' => 'Other',
         ];
 
         $this->assertSame($defaultCategories, $helper->getTalkCategories());
@@ -84,7 +84,7 @@ final class TalkHelperTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $category            = $faker->word;
+        $category = $faker->word;
         $categoryDisplayName = $faker->sentence;
 
         $categories = [
@@ -109,7 +109,7 @@ final class TalkHelperTest extends Framework\TestCase
         );
 
         $defaultTypes = [
-            'regular'  => 'Regular',
+            'regular' => 'Regular',
             'tutorial' => 'Tutorial',
         ];
 
@@ -153,7 +153,7 @@ final class TalkHelperTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $type            = $faker->word;
+        $type = $faker->word;
         $typeDisplayName = $faker->sentence;
 
         $types = [
@@ -178,8 +178,8 @@ final class TalkHelperTest extends Framework\TestCase
         );
 
         $defaultLevels = [
-            'entry'    => 'Entry level',
-            'mid'      => 'Mid-level',
+            'entry' => 'Entry level',
+            'mid' => 'Mid-level',
             'advanced' => 'Advanced',
         ];
 
@@ -223,7 +223,7 @@ final class TalkHelperTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $level            = $faker->word;
+        $level = $faker->word;
         $levelDisplayName = $faker->sentence;
 
         $levels = [

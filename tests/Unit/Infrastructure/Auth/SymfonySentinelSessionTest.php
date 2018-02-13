@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -29,7 +29,7 @@ final class SymfonySentinelSessionTest extends \PHPUnit\Framework\TestCase
 
     public function testPutSetsValue()
     {
-        $key   = 'foo';
+        $key = 'foo';
         $value = 'bar';
 
         $session = $this->getSessionMock();
@@ -52,7 +52,7 @@ final class SymfonySentinelSessionTest extends \PHPUnit\Framework\TestCase
 
     public function testGetReturnsValue()
     {
-        $key   = 'foo';
+        $key = 'foo';
         $value = 'bar';
 
         $session = $this->getSessionMock();

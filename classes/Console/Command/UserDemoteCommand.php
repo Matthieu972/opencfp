@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -55,7 +55,7 @@ EOF
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $email    = $input->getArgument('email');
+        $email = $input->getArgument('email');
         $roleName = $input->getArgument('role-name');
 
         $io = new SymfonyStyle(

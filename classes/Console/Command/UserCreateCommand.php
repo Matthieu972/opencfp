@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -62,9 +62,9 @@ final class UserCreateCommand extends Command
 
         $data = [
             'first_name' => $input->getOption('first_name'),
-            'last_name'  => $input->getOption('last_name'),
-            'email'      => $input->getOption('email'),
-            'password'   => $input->getOption('password'),
+            'last_name' => $input->getOption('last_name'),
+            'email' => $input->getOption('email'),
+            'password' => $input->getOption('password'),
         ];
 
         try {

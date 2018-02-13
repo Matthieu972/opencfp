@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -28,7 +28,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Test that form object correctly detects if all the required fields
-     * are in the user-submitted data
+     * are in the user-submitted data.
      *
      * @test
      * @dataProvider hasRequiredProvider
@@ -52,29 +52,29 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider correctlyDetectsRequiredFields
+     * Data provider correctlyDetectsRequiredFields.
      *
      * @return array
      */
     public function hasRequiredProvider(): array
     {
         $badData = [
-            'title'       => 'Bad Data',
+            'title' => 'Bad Data',
             'description' => 'Hey, why are we missing fields!',
         ];
         $goodData = [
-            'title'       => 'Talk Title',
+            'title' => 'Talk Title',
             'description' => 'Description of our talk',
-            'type'        => 'session',
-            'category'    => 'development',
-            'level'       => 'entry',
-            'slides'      => 'http://slideshare.net',
-            'other'       => 'Misc comments',
-            'desired'     => 1,
-            'sponsor'     => 1,
-            'user_id'     => 1,
+            'type' => 'session',
+            'category' => 'development',
+            'level' => 'entry',
+            'slides' => 'http://slideshare.net',
+            'other' => 'Misc comments',
+            'desired' => 1,
+            'sponsor' => 1,
+            'user_id' => 1,
         ];
-        $extendedData          = $goodData;
+        $extendedData = $goodData;
         $extendedData['extra'] = 'Extra data in $_POST but we ignore it';
 
         return [
@@ -86,7 +86,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Test that form object correctly detects if all the required fields
-     * are in the user-submitted data
+     * are in the user-submitted data.
      *
      * @test
      * @dataProvider hasNoDesiredOrSponsorProvider
@@ -109,21 +109,21 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider correctlyDetectsRequiredFields
+     * Data provider correctlyDetectsRequiredFields.
      *
      * @return array
      */
     public function hasNoDesiredOrSponsorProvider(): array
     {
         $goodData = [
-            'title'       => 'Talk Title',
+            'title' => 'Talk Title',
             'description' => 'Description of our talk',
-            'type'        => 'session',
-            'category'    => 'development',
-            'level'       => 'entry',
-            'slides'      => 'http://slideshare.net',
-            'other'       => 'Misc comments',
-            'user_id'     => 1,
+            'type' => 'session',
+            'category' => 'development',
+            'level' => 'entry',
+            'slides' => 'http://slideshare.net',
+            'other' => 'Misc comments',
+            'user_id' => 1,
         ];
 
         return [
@@ -132,7 +132,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that title data is properly validated
+     * Test that title data is properly validated.
      *
      * @test
      * @dataProvider titleValidatesProvider
@@ -157,7 +157,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for titleValidatesCorrectly
+     * Data provider for titleValidatesCorrectly.
      *
      * @return array
      */
@@ -174,7 +174,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that description data is being properly validated
+     * Test that description data is being properly validated.
      *
      * @test
      * @dataProvider descriptionValidatesProvider
@@ -199,7 +199,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for descriptionValidatesCorrectly
+     * Data provider for descriptionValidatesCorrectly.
      *
      * @return array
      */
@@ -215,7 +215,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that validates the talk type
+     * Test that validates the talk type.
      *
      * @test
      * @dataProvider typeProvider
@@ -244,7 +244,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for typeValidatesCorrectly
+     * Data provider for typeValidatesCorrectly.
      *
      * @return array
      */
@@ -262,7 +262,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that validates the talk category
+     * Test that validates the talk category.
      *
      * @test
      * @dataProvider categoryProvider
@@ -287,7 +287,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for typeValidatesCorrectly
+     * Data provider for typeValidatesCorrectly.
      *
      * @return array
      */
@@ -305,7 +305,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for speakerIdValidates
+     * Data provider for speakerIdValidates.
      *
      * @return array
      */
@@ -313,7 +313,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     {
         $validSpeakerInfo = [
             'user_id' => 1,
-            'info'    => 'Special speaker info',
+            'info' => 'Special speaker info',
         ];
 
         return [
@@ -327,7 +327,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that validates the talk type
+     * Test that validates the talk type.
      *
      * @test
      * @dataProvider levelProvider
@@ -355,7 +355,7 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for levelValidatesCorrectly
+     * Data provider for levelValidatesCorrectly.
      *
      * @return array
      */
@@ -403,7 +403,6 @@ final class TalkFormTest extends \PHPUnit\Framework\TestCase
             ['google.nl', true],
             ['http://www.slides-longer-than-255-characters.com/01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345', false],
             ['http://www.slides-longer-than-255-characters.com/0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234', true],
-
         ];
     }
 }

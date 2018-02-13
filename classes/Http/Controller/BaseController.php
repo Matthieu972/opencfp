@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -34,12 +34,12 @@ abstract class BaseController
 
     public function __construct(Twig_Environment $twig, UrlGeneratorInterface $urlGenerator)
     {
-        $this->twig         = $twig;
+        $this->twig = $twig;
         $this->urlGenerator = $urlGenerator;
     }
 
     /**
-     * Generates a file for the user
+     * Generates a file for the user.
      *
      * @param string $content
      * @param string $fileName
@@ -48,7 +48,7 @@ abstract class BaseController
      */
     protected function export(string $content, string $fileName)
     {
-        $response    = new Response($content);
+        $response = new Response($content);
         $disposition = $response->headers->makeDisposition(
             ResponseHeaderBag::DISPOSITION_ATTACHMENT,
             $fileName

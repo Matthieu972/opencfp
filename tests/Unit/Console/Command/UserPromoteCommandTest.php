@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -78,7 +78,7 @@ final class UserPromoteCommandTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $email    = $faker->email;
+        $email = $faker->email;
         $roleName = $faker->word;
 
         $accountManagement = $this->createAccountManagementMock();
@@ -97,7 +97,7 @@ final class UserPromoteCommandTest extends Framework\TestCase
         $commandTester = new Console\Tester\CommandTester($command);
 
         $commandTester->execute([
-            'email'     => $email,
+            'email' => $email,
             'role-name' => $roleName,
         ]);
 
@@ -123,7 +123,7 @@ final class UserPromoteCommandTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $email    = $faker->email;
+        $email = $faker->email;
         $roleName = $faker->word;
 
         $accountManagement = $this->createAccountManagementMock();
@@ -142,7 +142,7 @@ final class UserPromoteCommandTest extends Framework\TestCase
         $commandTester = new Console\Tester\CommandTester($command);
 
         $commandTester->execute([
-            'email'     => $email,
+            'email' => $email,
             'role-name' => $roleName,
         ]);
 
@@ -168,7 +168,7 @@ final class UserPromoteCommandTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $email    = $faker->email;
+        $email = $faker->email;
         $roleName = $faker->word;
 
         $accountManagement = $this->createAccountManagementMock();
@@ -187,7 +187,7 @@ final class UserPromoteCommandTest extends Framework\TestCase
         $commandTester = new Console\Tester\CommandTester($command);
 
         $commandTester->execute([
-            'email'     => $email,
+            'email' => $email,
             'role-name' => $roleName,
         ]);
 
@@ -213,7 +213,7 @@ final class UserPromoteCommandTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $email    = $faker->email;
+        $email = $faker->email;
         $roleName = $faker->word;
 
         $accountManagement = $this->createAccountManagementMock();
@@ -231,7 +231,7 @@ final class UserPromoteCommandTest extends Framework\TestCase
         $commandTester = new Console\Tester\CommandTester($command);
 
         $commandTester->execute([
-            'email'     => $email,
+            'email' => $email,
             'role-name' => $roleName,
         ]);
 

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -47,8 +47,8 @@ class ForgotController extends BaseController
         Twig_Environment $twig,
         UrlGeneratorInterface $urlGenerator
     ) {
-        $this->formFactory  = $formFactory;
-        $this->accounts     = $accounts;
+        $this->formFactory = $formFactory;
+        $this->accounts = $accounts;
         $this->resetEmailer = $resetEmailer;
 
         parent::__construct($twig, $urlGenerator);
@@ -64,9 +64,9 @@ class ForgotController extends BaseController
 
         if (!$form->isValid()) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'Please enter a properly formatted email address',
+                'ext' => 'Please enter a properly formatted email address',
             ]);
 
             return $this->redirectTo('forgot_password');
@@ -88,9 +88,9 @@ class ForgotController extends BaseController
 
         if ($response == false) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'We were unable to send your password reset request. Please try again',
+                'ext' => 'We were unable to send your password reset request. Please try again',
             ]);
 
             return $this->redirectTo('forgot_password');
@@ -108,7 +108,7 @@ class ForgotController extends BaseController
         }
 
         $errorMessage = 'The reset you have requested appears to be invalid, please try again.';
-        $error        = 0;
+        $error = 0;
 
         try {
             $user = $this->accounts->findById($request->get('user_id'));
@@ -122,21 +122,21 @@ class ForgotController extends BaseController
 
         if ($error > 0) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => $errorMessage,
+                'ext' => $errorMessage,
             ]);
         }
 
         // Build password form and display it to the user
         $formOptions = [
-            'user_id'    => $request->get('user_id'),
+            'user_id' => $request->get('user_id'),
             'reset_code' => $request->get('reset_code'),
         ];
         $form = $this->formFactory->create(new ResetFormType());
 
         return $this->render('user/forgot_password.twig', [
-            'form'  => $form->createView($formOptions),
+            'form' => $form->createView($formOptions),
             'flash' => $request->getSession()->get('flash'),
         ]);
     }
@@ -144,9 +144,9 @@ class ForgotController extends BaseController
     protected function successfulSendFlashParameters($email)
     {
         return [
-            'type'  => 'success',
+            'type' => 'success',
             'short' => 'Success',
-            'ext'   => "If your email was valid, we sent a link to reset your password to $email",
+            'ext' => "If your email was valid, we sent a link to reset your password to $email",
         ];
     }
 }

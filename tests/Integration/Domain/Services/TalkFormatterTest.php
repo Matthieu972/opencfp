@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -35,7 +35,7 @@ final class TalkFormatterTest extends WebTestCase implements TransactionalTestCa
     public function formatListReturnsAllTalksAsCollection()
     {
         $formatter = new TalkFormatter();
-        $talks     = Talk::all();
+        $talks = Talk::all();
         $formatted = $formatter->formatList($talks, 2);
         $this->assertSame(\count($talks), \count($formatted));
         $this->assertInstanceOf(Collection::class, $formatted);
@@ -47,12 +47,12 @@ final class TalkFormatterTest extends WebTestCase implements TransactionalTestCa
 
         $talk->create(
             [
-                'user_id'     => 1,
-                'title'       => 'One talk to rule them all',
+                'user_id' => 1,
+                'title' => 'One talk to rule them all',
                 'description' => 'Two is fine too',
-                'type'        => 'regular',
-                'level'       => 'entry',
-                'category'    => 'api',
+                'type' => 'regular',
+                'level' => 'entry',
+                'category' => 'api',
             ]
         );
 
@@ -60,30 +60,30 @@ final class TalkFormatterTest extends WebTestCase implements TransactionalTestCa
         $meta->create(
             [
                 'admin_user_id' => 2,
-                'rating'        => 1,
-                'viewed'        => 1,
-                'talk_id'       => $talk->first()->id,
-                'created'       => new \DateTime(),
+                'rating' => 1,
+                'viewed' => 1,
+                'talk_id' => $talk->first()->id,
+                'created' => new \DateTime(),
             ]
         );
         $talk->create(
             [
-                'user_id'     => 8,
-                'title'       => 'Extra Extra',
+                'user_id' => 8,
+                'title' => 'Extra Extra',
                 'description' => 'Talk',
-                'type'        => 'regular',
-                'level'       => 'entry',
-                'category'    => 'api',
+                'type' => 'regular',
+                'level' => 'entry',
+                'category' => 'api',
             ]
         );
         $talk->create(
             [
-                'user_id'     => 8,
-                'title'       => 'Third',
+                'user_id' => 8,
+                'title' => 'Third',
                 'description' => 'Talk',
-                'type'        => 'regular',
-                'level'       => 'entry',
-                'category'    => 'api',
+                'type' => 'regular',
+                'level' => 'entry',
+                'category' => 'api',
             ]
         );
     }

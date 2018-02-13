@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -40,8 +40,8 @@ final class ViewAction
         Twig_Environment $twig,
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
-        $this->talkHandler  = $talkHandler;
-        $this->twig         = $twig;
+        $this->talkHandler = $talkHandler;
+        $this->twig = $twig;
         $this->urlGenerator = $urlGenerator;
     }
 
@@ -51,9 +51,9 @@ final class ViewAction
 
         if (!$this->talkHandler->view()) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'Could not find requested talk',
+                'ext' => 'Could not find requested talk',
             ]);
 
             $url = $this->urlGenerator->generate('admin_talks');

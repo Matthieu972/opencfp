@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -53,7 +53,7 @@ final class SentinelAccountManagementTest extends \PHPUnit\Framework\TestCase
 
     public function testFindByIdReturnsSentinelUser()
     {
-        $user     = Mockery::mock(\Cartalyst\Sentinel\Users\UserInterface::class)->makePartial();
+        $user = Mockery::mock(\Cartalyst\Sentinel\Users\UserInterface::class)->makePartial();
         $sentinel = Mockery::mock(Sentinel::class);
         $sentinel->shouldReceive('getUserRepository->findById')->andReturn($user);
         $account = new SentinelAccountManagement($sentinel);
@@ -71,7 +71,7 @@ final class SentinelAccountManagementTest extends \PHPUnit\Framework\TestCase
 
     public function testFindByLoginReturnsSentinelUser()
     {
-        $user     = Mockery::mock(\Cartalyst\Sentinel\Users\UserInterface::class)->makePartial();
+        $user = Mockery::mock(\Cartalyst\Sentinel\Users\UserInterface::class)->makePartial();
         $sentinel = Mockery::mock(Sentinel::class);
         $sentinel->shouldReceive('getUserRepository->findByCredentials')->andReturn($user);
         $account = new SentinelAccountManagement($sentinel);
@@ -148,7 +148,7 @@ final class SentinelAccountManagementTest extends \PHPUnit\Framework\TestCase
 
     public function testCreateThrowsCorrectErrorWhenUserAlreadyExists()
     {
-        $user     = Mockery::mock(\Cartalyst\Sentinel\Users\UserInterface::class);
+        $user = Mockery::mock(\Cartalyst\Sentinel\Users\UserInterface::class);
         $sentinel = Mockery::mock(Sentinel::class);
         $sentinel->shouldReceive('getUserRepository->findByCredentials')->andReturn($user);
         $account = new SentinelAccountManagement($sentinel);
@@ -158,7 +158,7 @@ final class SentinelAccountManagementTest extends \PHPUnit\Framework\TestCase
 
     public function testCreateReturnsCorrectUserWhenCreatingOne()
     {
-        $user     = Mockery::mock(\Cartalyst\Sentinel\Users\UserInterface::class);
+        $user = Mockery::mock(\Cartalyst\Sentinel\Users\UserInterface::class);
         $sentinel = Mockery::mock(Sentinel::class);
         $sentinel->shouldReceive('getUserRepository->findByCredentials')->andReturn(null);
         $sentinel->shouldReceive('getUserRepository->create')->andReturn($user);
@@ -178,7 +178,7 @@ final class SentinelAccountManagementTest extends \PHPUnit\Framework\TestCase
 
     public function testActivateActivatesUser()
     {
-        $user     = Mockery::mock(\Cartalyst\Sentinel\Users\UserInterface::class);
+        $user = Mockery::mock(\Cartalyst\Sentinel\Users\UserInterface::class);
         $sentinel = Mockery::mock(Sentinel::class);
         $sentinel->shouldReceive('getUserRepository->findByCredentials')->andReturn($user);
         $sentinel->shouldReceive('getActivationRepository->create->getCode');
@@ -193,7 +193,7 @@ final class SentinelAccountManagementTest extends \PHPUnit\Framework\TestCase
         $faker = $this->faker();
 
         $email = $faker->word;
-        $name  = $faker->word;
+        $name = $faker->word;
 
         $roleRepository = Mockery::mock(Roles\RoleRepositoryInterface::class);
 
@@ -226,8 +226,8 @@ final class SentinelAccountManagementTest extends \PHPUnit\Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId   = $faker->numberBetween(1);
-        $email    = $faker->word;
+        $userId = $faker->numberBetween(1);
+        $email = $faker->word;
         $roleName = $faker->word;
 
         $user = Mockery::mock(Users\UserInterface::class);
@@ -287,7 +287,7 @@ final class SentinelAccountManagementTest extends \PHPUnit\Framework\TestCase
         $faker = $this->faker();
 
         $email = $faker->word;
-        $name  = $faker->word;
+        $name = $faker->word;
 
         $roleRepository = Mockery::mock(Roles\RoleRepositoryInterface::class);
 
@@ -320,8 +320,8 @@ final class SentinelAccountManagementTest extends \PHPUnit\Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId   = $faker->numberBetween(1);
-        $email    = $faker->word;
+        $userId = $faker->numberBetween(1);
+        $email = $faker->word;
         $roleName = $faker->word;
 
         $user = Mockery::mock(Users\UserInterface::class);

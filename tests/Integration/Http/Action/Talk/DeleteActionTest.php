@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -39,8 +39,8 @@ final class DeleteActionTest extends WebTestCase implements TransactionalTestCas
             ->asLoggedInSpeaker($speaker->id)
             ->callForPapersIsClosed()
             ->post('/talk/delete', [
-                'tid'      => $talk->id,
-                'token'    => $csrfToken,
+                'tid' => $talk->id,
+                'token' => $csrfToken,
                 'token_id' => 'delete_talk',
             ]);
 
@@ -57,7 +57,7 @@ final class DeleteActionTest extends WebTestCase implements TransactionalTestCas
         /** @var Talk $talk */
         $talk = factory(Talk::class, 1)->create()->first();
 
-        /** @var User $otherSpeaker*/
+        /** @var User $otherSpeaker */
         $otherSpeaker = factory(User::class, 1)->create()->first();
 
         $csrfToken = $this->container->get('security.csrf.token_manager')
@@ -67,8 +67,8 @@ final class DeleteActionTest extends WebTestCase implements TransactionalTestCas
         $response = $this
             ->asLoggedInSpeaker($otherSpeaker->id)
             ->post('/talk/delete', [
-                'tid'      => $talk->id,
-                'token'    => $csrfToken,
+                'tid' => $talk->id,
+                'token' => $csrfToken,
                 'token_id' => 'delete_talk',
             ]);
 

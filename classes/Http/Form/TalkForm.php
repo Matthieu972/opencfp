@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -15,7 +15,7 @@ namespace OpenCFP\Http\Form;
 
 /**
  * Class representing the form that speakers fill out when they want
- * to submit a talk
+ * to submit a talk.
  */
 class TalkForm extends Form
 {
@@ -56,12 +56,12 @@ class TalkForm extends Form
 
     public function validateAll(string $action = 'create'): bool
     {
-        $title       = $this->validateTitle();
+        $title = $this->validateTitle();
         $description = $this->validateDescription();
-        $level       = $this->validateLevel();
-        $category    = $this->validateCategory();
-        $slides      = $this->validateSlides();
-        $type        = $this->validateType();
+        $level = $this->validateLevel();
+        $category = $this->validateCategory();
+        $slides = $this->validateSlides();
+        $type = $this->validateType();
 
         return $title && $description && $level && $category && $slides && $type;
     }

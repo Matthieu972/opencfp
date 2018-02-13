@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -46,23 +46,23 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Test that form object rejects validation when we don't have
-     * enough fields
+     * enough fields.
      *
      * @test
      */
     public function formRejectsValidationOnMissingFields()
     {
         $data = [
-            'email'       => 'test@domain.com',
+            'email' => 'test@domain.com',
             'notrequired' => 'test',
         ];
-        $form     = new \OpenCFP\Http\Form\SignupForm($data, $this->purifier);
+        $form = new \OpenCFP\Http\Form\SignupForm($data, $this->purifier);
         $response = $form->hasRequiredFields();
         $this->assertFalse($response);
     }
 
     /**
-     * Verify that emails are being validated correctly
+     * Verify that emails are being validated correctly.
      *
      * @test
      *
@@ -83,7 +83,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Validation should fail if we don't have an email address in the data
-     * and try to validate it
+     * and try to validate it.
      *
      * @test
      */
@@ -98,7 +98,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for emailsAreBeingValidatedCorrectly
+     * Data provider for emailsAreBeingValidatedCorrectly.
      *
      * @return array
      */
@@ -114,7 +114,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for properPasswordsPassValidationAndSanitization
+     * Data provider for properPasswordsPassValidationAndSanitization.
      *
      * @return array
      */
@@ -130,7 +130,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Test that password that match and are of the proper length pass validation
-     * and sanitization
+     * and sanitization.
      *
      * @test
      *
@@ -140,7 +140,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     public function properPasswordsPassValidationAndSanitization($passwd)
     {
         $data = [
-            'password'  => $passwd,
+            'password' => $passwd,
             'password2' => $passwd,
         ];
         $form = new \OpenCFP\Http\Form\SignupForm($data, $this->purifier);
@@ -153,7 +153,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that bad passwords are being correctly matched and sanitized
+     * Test that bad passwords are being correctly matched and sanitized.
      *
      * @test
      *
@@ -166,7 +166,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     public function badPasswordsAreBeingCorrectlyDetected($passwd, $passwd2, $expectedMessage, $expectedResponse)
     {
         $data = [
-            'password'  => $passwd,
+            'password' => $passwd,
             'password2' => $passwd2,
         ];
 
@@ -183,7 +183,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for passwordsAreBeingCorrectlyMatched
+     * Data provider for passwordsAreBeingCorrectlyMatched.
      *
      * @return array
      */
@@ -198,7 +198,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that the firstName is being validated correctly
+     * Test that the firstName is being validated correctly.
      *
      * @test
      *
@@ -209,7 +209,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     public function firstNameIsValidatedCorrectly($firstName, $expectedResponse)
     {
         $data['first_name'] = $firstName;
-        $form               = new \OpenCFP\Http\Form\SignupForm($data, $this->purifier);
+        $form = new \OpenCFP\Http\Form\SignupForm($data, $this->purifier);
         $form->sanitize();
 
         $this->assertSame(
@@ -220,7 +220,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for firstNameIsValidatedCorrectly
+     * Data provider for firstNameIsValidatedCorrectly.
      *
      * @return array
      */
@@ -242,7 +242,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that the lastName is being validated correctly
+     * Test that the lastName is being validated correctly.
      *
      * @test
      *
@@ -253,7 +253,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     public function lastNameIsValidatedCorrectly($lastName, $expectedResponse)
     {
         $data['last_name'] = $lastName;
-        $form              = new \OpenCFP\Http\Form\SignupForm($data, $this->purifier);
+        $form = new \OpenCFP\Http\Form\SignupForm($data, $this->purifier);
         $form->sanitize();
 
         $this->assertSame(
@@ -264,7 +264,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for lastNameIsValidatedCorrectly
+     * Data provider for lastNameIsValidatedCorrectly.
      *
      * @return array
      */
@@ -287,7 +287,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Test that verifies that our wrapper method for validating all
-     * fields works correctly
+     * fields works correctly.
      *
      * @test
      *
@@ -306,21 +306,21 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider method for validateAllWOrksCorrectly
+     * Data provider method for validateAllWOrksCorrectly.
      *
      * @return array
      */
     public function validateAllProvider(): array
     {
         $baseData = [
-            'email'      => 'test@domain.com',
-            'password'   => 'xxxxxx',
-            'password2'  => 'xxxxxx',
+            'email' => 'test@domain.com',
+            'password' => 'xxxxxx',
+            'password2' => 'xxxxxx',
             'first_name' => 'Tésty',
-            'last_name'  => 'McTestèrton',
-            'url'        => 'https://joind.in/user/abc123',
+            'last_name' => 'McTestèrton',
+            'url' => 'https://joind.in/user/abc123',
         ];
-        $baseDataWithSpeakerInfo                 = $baseData;
+        $baseDataWithSpeakerInfo = $baseData;
         $baseDataWithSpeakerInfo['speaker_info'] = 'Testing speaker info data';
 
         return [
@@ -330,7 +330,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that speaker info is validated correctly
+     * Test that speaker info is validated correctly.
      *
      * @test
      *
@@ -341,7 +341,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     public function speakerInfoValidatedCorrectly($speakerInfo, $expectedResponse)
     {
         $data['speaker_info'] = $speakerInfo;
-        $form                 = new \OpenCFP\Http\Form\SignupForm($data, $this->purifier);
+        $form = new \OpenCFP\Http\Form\SignupForm($data, $this->purifier);
         $form->sanitize();
 
         $this->assertSame(
@@ -352,7 +352,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that speaker info is validated correctly
+     * Test that speaker info is validated correctly.
      *
      * @test
      *
@@ -363,7 +363,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     public function speakerBioValidatedCorrectly($speakerBio, $expectedResponse)
     {
         $data['speaker_bio'] = $speakerBio;
-        $form                = new \OpenCFP\Http\Form\SignupForm($data, $this->purifier);
+        $form = new \OpenCFP\Http\Form\SignupForm($data, $this->purifier);
         $form->sanitize();
         $this->assertSame(
             $expectedResponse,
@@ -373,7 +373,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for speakerInfoValidatedCorrectly
+     * Data provider for speakerInfoValidatedCorrectly.
      *
      * @return array
      */
@@ -386,7 +386,7 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that we get back some sanitized data
+     * Test that we get back some sanitized data.
      *
      * @test
      *
@@ -407,62 +407,62 @@ final class SignupFormTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for dataGetsReturnedCorrectlySanitized
+     * Data provider for dataGetsReturnedCorrectlySanitized.
      *
      * @return array
      */
     public function sanitizationProvider(): array
     {
         $badDataIn = [
-            'email'      => 'test@domain.com',
-            'password'   => 'xxxxxx',
-            'password2'  => 'xxxxxx',
+            'email' => 'test@domain.com',
+            'password' => 'xxxxxx',
+            'password2' => 'xxxxxx',
             'first_name' => 'Testy',
-            'last_name'  => "<script>alert('XSS')</script>",
+            'last_name' => "<script>alert('XSS')</script>",
         ];
 
         $badDataOut = [
-            'email'      => 'test@domain.com',
-            'password'   => 'xxxxxx',
-            'password2'  => 'xxxxxx',
+            'email' => 'test@domain.com',
+            'password' => 'xxxxxx',
+            'password2' => 'xxxxxx',
             'first_name' => 'Testy',
-            'last_name'  => '',
+            'last_name' => '',
         ];
 
         $goodDataIn = [
-            'email'      => 'test@domain.com',
-            'password'   => 'xxxxxx',
-            'password2'  => 'xxxxxx',
+            'email' => 'test@domain.com',
+            'password' => 'xxxxxx',
+            'password2' => 'xxxxxx',
             'first_name' => 'Testy',
-            'last_name'  => 'McTesterton',
+            'last_name' => 'McTesterton',
         ];
 
         $goodDataOut = $goodDataIn;
 
         $badSpeakerInfoIn = [
-            'email'        => 'test@domain.com',
-            'password'     => 'xxxxxx',
-            'password2'    => 'xxxxxx',
-            'first_name'   => 'Testy',
-            'last_name'    => 'McTesterton',
+            'email' => 'test@domain.com',
+            'password' => 'xxxxxx',
+            'password2' => 'xxxxxx',
+            'first_name' => 'Testy',
+            'last_name' => 'McTesterton',
             'speaker_info' => '<a href="http://lolcoin.com/redeem">Speaker bio</a>',
         ];
 
         $badSpeakerInfoOut = [
-            'email'        => 'test@domain.com',
-            'password'     => 'xxxxxx',
-            'password2'    => 'xxxxxx',
-            'first_name'   => 'Testy',
-            'last_name'    => 'McTesterton',
+            'email' => 'test@domain.com',
+            'password' => 'xxxxxx',
+            'password2' => 'xxxxxx',
+            'first_name' => 'Testy',
+            'last_name' => 'McTesterton',
             'speaker_info' => '<a href="http://lolcoin.com/redeem">Speaker bio</a>',
         ];
 
         $goodSpeakerInfoIn = [
-            'email'        => 'test@domain.com',
-            'password'     => 'xxxxxx',
-            'password2'    => 'xxxxxx',
-            'first_name'   => 'Testy',
-            'last_name'    => 'McTesterton',
+            'email' => 'test@domain.com',
+            'password' => 'xxxxxx',
+            'password2' => 'xxxxxx',
+            'first_name' => 'Testy',
+            'last_name' => 'McTesterton',
             'speaker_info' => 'Find my bio at http://littlehart.net',
         ];
 

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -35,7 +35,7 @@ final class ViewAction
         Speakers $speakers,
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
-        $this->speakers     = $speakers;
+        $this->speakers = $speakers;
         $this->urlGenerator = $urlGenerator;
     }
 
@@ -56,7 +56,7 @@ final class ViewAction
 
         return [
             'talkId' => $talkId,
-            'talk'   => $talk,
+            'talk' => $talk,
         ];
     }
 }

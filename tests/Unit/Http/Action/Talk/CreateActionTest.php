@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -34,9 +34,9 @@ final class CreateActionTest extends AbstractActionTestCase
             ->with(
                 $this->identicalTo('flash'),
                 $this->identicalTo([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Error',
-                    'ext'   => 'You cannot create talks once the call for papers has ended',
+                    'ext' => 'You cannot create talks once the call for papers has ended',
                 ])
             );
 
@@ -98,29 +98,29 @@ final class CreateActionTest extends AbstractActionTestCase
         $formAction = $faker->url;
 
         $categories = $faker->words;
-        $types      = $faker->words;
-        $levels     = $faker->words;
+        $types = $faker->words;
+        $levels = $faker->words;
 
-        $category    = $faker->word;
+        $category = $faker->word;
         $description = $faker->text;
-        $desired     = $faker->word;
-        $level       = $faker->word;
-        $other       = $faker->word;
-        $slides      = $faker->word;
-        $sponsor     = $faker->word;
-        $title       = $faker->sentence;
-        $type        = $faker->word;
+        $desired = $faker->word;
+        $level = $faker->word;
+        $other = $faker->word;
+        $slides = $faker->word;
+        $sponsor = $faker->word;
+        $title = $faker->sentence;
+        $type = $faker->word;
 
         $fields = [
-            'category'    => $category,
+            'category' => $category,
             'description' => $description,
-            'desired'     => $desired,
-            'level'       => $level,
-            'other'       => $other,
-            'slides'      => $slides,
-            'sponsor'     => $sponsor,
-            'title'       => $title,
-            'type'        => $type,
+            'desired' => $desired,
+            'level' => $level,
+            'other' => $other,
+            'slides' => $slides,
+            'sponsor' => $sponsor,
+            'title' => $title,
+            'type' => $type,
         ];
 
         $request = $this->createRequestMock();
@@ -166,20 +166,20 @@ final class CreateActionTest extends AbstractActionTestCase
             ->with(
                 $this->identicalTo('talk/create.twig'),
                 $this->identicalTo([
-                    'formAction'     => $formAction,
+                    'formAction' => $formAction,
                     'talkCategories' => $categories,
-                    'talkTypes'      => $types,
-                    'talkLevels'     => $levels,
-                    'title'          => $title,
-                    'description'    => $description,
-                    'type'           => $type,
-                    'level'          => $level,
-                    'category'       => $category,
-                    'desired'        => $desired,
-                    'slides'         => $slides,
-                    'other'          => $other,
-                    'sponsor'        => $sponsor,
-                    'buttonInfo'     => 'Submit my talk!',
+                    'talkTypes' => $types,
+                    'talkLevels' => $levels,
+                    'title' => $title,
+                    'description' => $description,
+                    'type' => $type,
+                    'level' => $level,
+                    'category' => $category,
+                    'desired' => $desired,
+                    'slides' => $slides,
+                    'other' => $other,
+                    'sponsor' => $sponsor,
+                    'buttonInfo' => 'Submit my talk!',
                 ])
             )
             ->willReturn($content);

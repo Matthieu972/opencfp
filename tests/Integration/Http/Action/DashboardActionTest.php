@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -27,7 +27,7 @@ final class DashboardActionTest extends WebTestCase implements TransactionalTest
 {
     /**
      * Test that the index page returns a list of talks associated
-     * with a specific user and information about that user as well
+     * with a specific user and information about that user as well.
      *
      * @test
      */
@@ -37,18 +37,18 @@ final class DashboardActionTest extends WebTestCase implements TransactionalTest
 
         $user = $accounts->create('someone@example.com', 'some password', [
             'first_name' => 'Test',
-            'last_name'  => 'User',
+            'last_name' => 'User',
         ]);
         $accounts->activate($user->getLogin());
         $accounts->promoteTo($user->getLogin(), 'admin');
 
         Talk::create([
-            'title'       => 'Test Title',
+            'title' => 'Test Title',
             'description' => 'A good one!',
-            'type'        => 'regular',
-            'level'       => 'entry',
-            'category'    => 'api',
-            'user_id'     => $user->getId(),
+            'type' => 'regular',
+            'level' => 'entry',
+            'category' => 'api',
+            'user_id' => $user->getId(),
         ]);
 
         /** @var MockAuthentication $authentication */
@@ -58,9 +58,9 @@ final class DashboardActionTest extends WebTestCase implements TransactionalTest
         /** @var MockIdentityProvider $identityProvider */
         $identityProvider = $this->container->get(IdentityProvider::class);
         $identityProvider->overrideCurrentUser(new User([
-            'id'         => $user->getId(),
+            'id' => $user->getId(),
             'first_name' => 'Test',
-            'last_name'  => 'User',
+            'last_name' => 'User',
         ]));
 
         $this->callForPapersIsOpen();
@@ -81,7 +81,7 @@ final class DashboardActionTest extends WebTestCase implements TransactionalTest
 
         $user = $accounts->create('another.one@example.com', 'some password', [
             'first_name' => 'Test',
-            'last_name'  => 'User',
+            'last_name' => 'User',
         ]);
         $accounts->activate($user->getLogin());
 
@@ -92,9 +92,9 @@ final class DashboardActionTest extends WebTestCase implements TransactionalTest
         /** @var MockIdentityProvider $identityProvider */
         $identityProvider = $this->container->get(IdentityProvider::class);
         $identityProvider->overrideCurrentUser(new User([
-            'id'         => $user->getId(),
+            'id' => $user->getId(),
             'first_name' => 'Test',
-            'last_name'  => 'User',
+            'last_name' => 'User',
         ]));
 
         $response = $this

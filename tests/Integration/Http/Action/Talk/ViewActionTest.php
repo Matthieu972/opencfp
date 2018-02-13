@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -31,12 +31,12 @@ final class ViewActionTest extends WebTestCase implements TransactionalTestCase
         $accounts->activate($user->getLogin());
 
         $talk = Model\Talk::create([
-            'title'       => 'Some Talk',
+            'title' => 'Some Talk',
             'description' => 'A good one!',
-            'type'        => 'regular',
-            'level'       => 'entry',
-            'category'    => 'api',
-            'user_id'     => $user->getId(),
+            'type' => 'regular',
+            'level' => 'entry',
+            'category' => 'api',
+            'user_id' => $user->getId(),
         ]);
 
         $url = \sprintf(

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -44,7 +44,7 @@ class ResetEmailer
     public function __construct(\Swift_Mailer $swiftMailer, \Twig_Environment $twig, string $configEmail, string $configTitle)
     {
         $this->swiftMailer = $swiftMailer;
-        $this->twig        = $twig;
+        $this->twig = $twig;
         $this->configEmail = $configEmail;
         $this->configTitle = $configTitle;
     }
@@ -80,12 +80,12 @@ class ResetEmailer
     {
         return [
             'reset_code' => $resetCode,
-            'method'     => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off')
+            'method' => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off')
                 ? 'https' : 'http',
-            'host'    => !empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost',
+            'host' => !empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost',
             'user_id' => $userId,
-            'email'   => $this->configEmail,
-            'title'   => $this->configTitle,
+            'email' => $this->configEmail,
+            'title' => $this->configTitle,
         ];
     }
 

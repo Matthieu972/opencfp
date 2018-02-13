@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -149,9 +149,9 @@ final class UserCreateCommandTest extends Framework\TestCase
         $faker = $this->faker();
 
         $firstName = $faker->firstName;
-        $lastName  = $faker->lastName;
-        $email     = $faker->email;
-        $password  = $faker->password;
+        $lastName = $faker->lastName;
+        $email = $faker->email;
+        $password = $faker->password;
 
         $accountManagement = $this->createAccountManagementMock();
 
@@ -163,9 +163,9 @@ final class UserCreateCommandTest extends Framework\TestCase
                 $this->identicalTo($password),
                 $this->identicalTo([
                     'first_name' => $firstName,
-                    'last_name'  => $lastName,
-                    'email'      => $email,
-                    'password'   => $password,
+                    'last_name' => $lastName,
+                    'email' => $email,
+                    'password' => $password,
                 ])
             )
             ->willThrowException(new Auth\UserExistsException());
@@ -176,9 +176,9 @@ final class UserCreateCommandTest extends Framework\TestCase
 
         $commandTester->execute([
             '--first_name' => $firstName,
-            '--last_name'  => $lastName,
-            '--email'      => $email,
-            '--password'   => $password,
+            '--last_name' => $lastName,
+            '--email' => $email,
+            '--password' => $password,
         ]);
 
         $this->assertSame(1, $commandTester->getStatusCode());
@@ -196,9 +196,9 @@ final class UserCreateCommandTest extends Framework\TestCase
         $faker = $this->faker();
 
         $firstName = $faker->firstName;
-        $lastName  = $faker->lastName;
-        $email     = $faker->email;
-        $password  = $faker->password;
+        $lastName = $faker->lastName;
+        $email = $faker->email;
+        $password = $faker->password;
 
         $user = $this->createUserMock();
 
@@ -212,9 +212,9 @@ final class UserCreateCommandTest extends Framework\TestCase
                 $this->identicalTo($password),
                 $this->identicalTo([
                     'first_name' => $firstName,
-                    'last_name'  => $lastName,
-                    'email'      => $email,
-                    'password'   => $password,
+                    'last_name' => $lastName,
+                    'email' => $email,
+                    'password' => $password,
                 ])
             )
             ->willReturn($user);
@@ -230,9 +230,9 @@ final class UserCreateCommandTest extends Framework\TestCase
 
         $commandTester->execute([
             '--first_name' => $firstName,
-            '--last_name'  => $lastName,
-            '--email'      => $email,
-            '--password'   => $password,
+            '--last_name' => $lastName,
+            '--email' => $email,
+            '--password' => $password,
         ]);
 
         $this->assertSame(0, $commandTester->getStatusCode());
@@ -258,9 +258,9 @@ final class UserCreateCommandTest extends Framework\TestCase
         $faker = $this->faker();
 
         $firstName = $faker->firstName;
-        $lastName  = $faker->lastName;
-        $email     = $faker->email;
-        $password  = $faker->password;
+        $lastName = $faker->lastName;
+        $email = $faker->email;
+        $password = $faker->password;
 
         $accountManagement = $this->createAccountManagementMock();
 
@@ -272,9 +272,9 @@ final class UserCreateCommandTest extends Framework\TestCase
                 $this->identicalTo($password),
                 $this->identicalTo([
                     'first_name' => $firstName,
-                    'last_name'  => $lastName,
-                    'email'      => $email,
-                    'password'   => $password,
+                    'last_name' => $lastName,
+                    'email' => $email,
+                    'password' => $password,
                 ])
             )
             ->willReturn($this->createUserMock());
@@ -290,9 +290,9 @@ final class UserCreateCommandTest extends Framework\TestCase
 
         $options = \array_merge([
             '--first_name' => $firstName,
-            '--last_name'  => $lastName,
-            '--email'      => $email,
-            '--password'   => $password,
+            '--last_name' => $lastName,
+            '--email' => $email,
+            '--password' => $password,
         ], $options);
 
         $commandTester->execute($options);
@@ -339,7 +339,7 @@ final class UserCreateCommandTest extends Framework\TestCase
             ],
             'admin-and-reviewer-only' => [
                 [
-                    '--admin'    => null,
+                    '--admin' => null,
                     '--reviewer' => null,
                 ],
                 [

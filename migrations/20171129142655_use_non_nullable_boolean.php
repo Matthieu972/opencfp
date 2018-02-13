@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/**
+/*
  * Copyright (c) 2013-2018 OpenCFP
  *
  * For the full copyright and license information, please view
@@ -34,7 +34,7 @@ SQL;
 
             $table->changeColumn($columnName, 'boolean', [
                 'default' => 0,
-                'null'    => false,
+                'null' => false,
             ]);
         }
     }

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -21,7 +21,7 @@ use OpenCFP\Domain\Services\TalkRating\YesNoRating;
 use OpenCFP\Infrastructure\Auth\UserInterface;
 
 /**
- * We Use the YesNoRating class to test the base class, since we know exactly what values are allowed
+ * We Use the YesNoRating class to test the base class, since we know exactly what values are allowed.
  */
 final class TalkRatingTest extends \PHPUnit\Framework\TestCase
 {

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -89,25 +89,25 @@ final class CreateProcessAction
         Twig_Environment $twig,
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
-        $this->authentication     = $authentication;
-        $this->talkHelper         = $talkHelper;
-        $this->callForPapers      = $callForPapers;
-        $this->purifier           = $purifier;
-        $this->mailer             = $mailer;
-        $this->applicationEmail   = $applicationEmail;
-        $this->applicationTitle   = $applicationTitle;
+        $this->authentication = $authentication;
+        $this->talkHelper = $talkHelper;
+        $this->callForPapers = $callForPapers;
+        $this->purifier = $purifier;
+        $this->mailer = $mailer;
+        $this->applicationEmail = $applicationEmail;
+        $this->applicationTitle = $applicationTitle;
         $this->applicationEndDate = $applicationEndDate;
-        $this->twig               = $twig;
-        $this->urlGenerator       = $urlGenerator;
+        $this->twig = $twig;
+        $this->urlGenerator = $urlGenerator;
     }
 
     public function __invoke(HttpFoundation\Request $request): HttpFoundation\Response
     {
         if (!$this->callForPapers->isOpen()) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'You cannot create talks once the call for papers has ended',
+                'ext' => 'You cannot create talks once the call for papers has ended',
             ]);
 
             $url = $this->urlGenerator->generate('dashboard');
@@ -118,43 +118,43 @@ final class CreateProcessAction
         $user = $this->authentication->user();
 
         $form = $this->createTalkForm([
-            'title'       => $request->get('title'),
+            'title' => $request->get('title'),
             'description' => $request->get('description'),
-            'type'        => $request->get('type'),
-            'level'       => $request->get('level'),
-            'category'    => $request->get('category'),
-            'desired'     => $request->get('desired'),
-            'slides'      => $request->get('slides'),
-            'other'       => $request->get('other'),
-            'sponsor'     => $request->get('sponsor'),
-            'user_id'     => $request->get('user_id'),
+            'type' => $request->get('type'),
+            'level' => $request->get('level'),
+            'category' => $request->get('category'),
+            'desired' => $request->get('desired'),
+            'slides' => $request->get('slides'),
+            'other' => $request->get('other'),
+            'sponsor' => $request->get('sponsor'),
+            'user_id' => $request->get('user_id'),
         ]);
 
         $form->sanitize();
 
         if (!$form->validateAll()) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => \implode('<br>', $form->getErrorMessages()),
+                'ext' => \implode('<br>', $form->getErrorMessages()),
             ]);
 
             $content = $this->twig->render('talk/create.twig', [
-                'formAction'     => $this->urlGenerator->generate('talk_create'),
+                'formAction' => $this->urlGenerator->generate('talk_create'),
                 'talkCategories' => $this->talkHelper->getTalkCategories(),
-                'talkTypes'      => $this->talkHelper->getTalkTypes(),
-                'talkLevels'     => $this->talkHelper->getTalkLevels(),
-                'title'          => $request->get('title'),
-                'description'    => $request->get('description'),
-                'type'           => $request->get('type'),
-                'level'          => $request->get('level'),
-                'category'       => $request->get('category'),
-                'desired'        => $request->get('desired'),
-                'slides'         => $request->get('slides'),
-                'other'          => $request->get('other'),
-                'sponsor'        => $request->get('sponsor'),
-                'buttonInfo'     => 'Submit my talk!',
-                'flash'          => $request->getSession()->get('flash'),
+                'talkTypes' => $this->talkHelper->getTalkTypes(),
+                'talkLevels' => $this->talkHelper->getTalkLevels(),
+                'title' => $request->get('title'),
+                'description' => $request->get('description'),
+                'type' => $request->get('type'),
+                'level' => $request->get('level'),
+                'category' => $request->get('category'),
+                'desired' => $request->get('desired'),
+                'slides' => $request->get('slides'),
+                'other' => $request->get('other'),
+                'sponsor' => $request->get('sponsor'),
+                'buttonInfo' => 'Submit my talk!',
+                'flash' => $request->getSession()->get('flash'),
             ]);
 
             return new HttpFoundation\Response($content);
@@ -165,9 +165,9 @@ final class CreateProcessAction
         ]));
 
         $request->getSession()->set('flash', [
-            'type'  => 'success',
+            'type' => 'success',
             'short' => 'Success',
-            'ext'   => 'Successfully saved talk.',
+            'ext' => 'Successfully saved talk.',
         ]);
 
         $this->sendSubmitEmail(
@@ -187,8 +187,8 @@ final class CreateProcessAction
             $this->purifier,
             [
                 'categories' => $this->talkHelper->getTalkCategories(),
-                'levels'     => $this->talkHelper->getTalkLevels(),
-                'types'      => $this->talkHelper->getTalkTypes(),
+                'levels' => $this->talkHelper->getTalkLevels(),
+                'types' => $this->talkHelper->getTalkTypes(),
             ]
         );
     }
@@ -200,9 +200,9 @@ final class CreateProcessAction
         $template = $this->twig->loadTemplate('emails/talk_submit.twig');
 
         $parameters = [
-            'email'   => $this->applicationEmail,
-            'title'   => $this->applicationTitle,
-            'talk'    => $talk->title,
+            'email' => $this->applicationEmail,
+            'title' => $this->applicationTitle,
+            'talk' => $talk->title,
             'enddate' => $this->applicationEndDate,
         ];
 

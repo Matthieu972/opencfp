@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -31,8 +31,8 @@ final class UpdateActionTest extends WebTestCase implements TransactionalTestCas
             ->asLoggedInSpeaker()
             ->callForPapersIsClosed()
             ->post('/talk/update', [
-                'id'       => 2,
-                'token'    => $csrfToken,
+                'id' => 2,
+                'token' => $csrfToken,
                 'token_id' => 'speaker_talk',
             ]);
 
@@ -53,8 +53,8 @@ final class UpdateActionTest extends WebTestCase implements TransactionalTestCas
             ->asLoggedInSpeaker()
             ->callForPapersIsOpen()
             ->post('/talk/update', [
-                'id'       => 2,
-                'token'    => $csrfToken,
+                'id' => 2,
+                'token' => $csrfToken,
                 'token_id' => 'speaker_talk',
             ]);
 
@@ -71,8 +71,8 @@ final class UpdateActionTest extends WebTestCase implements TransactionalTestCas
             ->asLoggedInSpeaker()
             ->callForPapersIsOpen()
             ->post('/talk/update', [
-                'id'       => 2,
-                'token'    => \uniqid(),
+                'id' => 2,
+                'token' => \uniqid(),
                 'token_id' => 'speaker_talk',
             ]);
 

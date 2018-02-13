@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -129,11 +129,11 @@ final class SpeakerProfileTest extends Framework\TestCase
         $faker = $this->faker();
 
         $firstName = $faker->firstName;
-        $lastName  = $faker->lastName;
+        $lastName = $faker->lastName;
 
         $speaker = $this->createUserMock([
             'first_name' => $firstName,
-            'last_name'  => $lastName,
+            'last_name' => $lastName,
         ]);
 
         $profile = new SpeakerProfile($speaker);
@@ -350,7 +350,7 @@ final class SpeakerProfileTest extends Framework\TestCase
     {
         $values = [
             'int-zero' => 0,
-            'null'     => null,
+            'null' => null,
         ];
 
         foreach ($values as $key => $value) {

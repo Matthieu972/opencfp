@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -94,7 +94,7 @@ final class UserTest extends WebTestCase implements TransactionalTestCase
         $faker = $this->faker();
 
         $firstName = $faker->firstName;
-        $lastName  = $faker->lastName;
+        $lastName = $faker->lastName;
 
         factory(User::class, 1)->create(['first_name' => $firstName]);
         factory(User::class, 1)->create(['last_name' => $firstName]);

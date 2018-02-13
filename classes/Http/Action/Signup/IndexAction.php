@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -48,9 +48,9 @@ final class IndexAction
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
         $this->authentication = $authentication;
-        $this->callForPapers  = $callForPapers;
-        $this->twig           = $twig;
-        $this->urlGenerator   = $urlGenerator;
+        $this->callForPapers = $callForPapers;
+        $this->twig = $twig;
+        $this->urlGenerator = $urlGenerator;
     }
 
     public function __invoke(HttpFoundation\Request $request): HttpFoundation\Response
@@ -63,9 +63,9 @@ final class IndexAction
 
         if (!$this->callForPapers->isOpen()) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'Sorry, the call for papers has ended.',
+                'ext' => 'Sorry, the call for papers has ended.',
             ]);
 
             $url = $this->urlGenerator->generate('homepage');

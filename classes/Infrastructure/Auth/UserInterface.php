@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -16,14 +16,14 @@ namespace OpenCFP\Infrastructure\Auth;
 interface UserInterface
 {
     /**
-     * Retrieves the user's Id
+     * Retrieves the user's Id.
      *
      * @return int
      */
     public function getId(): int;
 
     /**
-     * Retrieves the users login (email)
+     * Retrieves the users login (email).
      *
      * @return string
      */

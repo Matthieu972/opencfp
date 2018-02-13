@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -27,7 +27,7 @@ final class EditActionTest extends AbstractActionTestCase
         $faker = $this->faker();
 
         $talkId = $faker->numberBetween(1);
-        $url    = $faker->slug();
+        $url = $faker->slug();
 
         $session = $this->createSessionMock();
 
@@ -37,9 +37,9 @@ final class EditActionTest extends AbstractActionTestCase
             ->with(
                 $this->identicalTo('flash'),
                 $this->identicalTo([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Read Only',
-                    'ext'   => 'You cannot edit talks once the call for papers has ended',
+                    'ext' => 'You cannot edit talks once the call for papers has ended',
                 ])
             );
 
@@ -106,7 +106,7 @@ final class EditActionTest extends AbstractActionTestCase
     public function testRedirectsToDashboardIfCallForPapersIsOpenButTalkIdIsEmpty()
     {
         $talkId = 0;
-        $url    = $this->faker()->slug();
+        $url = $this->faker()->slug();
 
         $session = $this->createSessionMock();
 

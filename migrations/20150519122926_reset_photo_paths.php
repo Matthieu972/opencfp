@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/**
+/*
  * Copyright (c) 2013-2018 OpenCFP
  *
  * For the full copyright and license information, please view
@@ -26,12 +26,12 @@ class ResetPhotoPaths extends AbstractMigration
 
         // Cleans out "orphaned" files that we have no record of.
         foreach ($this->photosNotPartOfProfile() as $fileName) {
-            echo "[info] Removing {$fileName} as it is not registered with any user." . PHP_EOL;
+            echo "[info] Removing {$fileName} as it is not registered with any user.".PHP_EOL;
             \unlink($fileName);
         }
 
         foreach ($this->getSpeakers() as $speaker) {
-            echo "[info] Attempting to regenerate photo path for {$speaker['name']}." . PHP_EOL;
+            echo "[info] Attempting to regenerate photo path for {$speaker['name']}.".PHP_EOL;
             $this->regenerateSpeakerPhotoPath($speaker);
         }
     }
@@ -46,7 +46,7 @@ class ResetPhotoPaths extends AbstractMigration
 
     private function photosNotPartOfProfile()
     {
-        $registeredPhotos           = [];
+        $registeredPhotos = [];
         $fileNamesFlaggedForRemoval = [];
 
         // Get registered photos from users table.
@@ -56,7 +56,7 @@ class ResetPhotoPaths extends AbstractMigration
 
         // Crawl uploads directory.
         // If filename is not registered, flag it for removal.
-        $iterator = new DirectoryIterator(__DIR__ . '/../web/uploads');
+        $iterator = new DirectoryIterator(__DIR__.'/../web/uploads');
 
         foreach ($iterator as $file) {
             if ($file->isDot() || \in_array($file->getFilename(), ['dummyphoto.jpg'])) {
@@ -85,29 +85,29 @@ class ResetPhotoPaths extends AbstractMigration
     {
         // If speaker photo does not exist, null it out and return.
         if (!$this->fileExists($speaker['photo_path'])) {
-            echo "[info] {$speaker['name']}'s photo was not found in file system. Removing record of it from profile." . PHP_EOL;
+            echo "[info] {$speaker['name']}'s photo was not found in file system. Removing record of it from profile.".PHP_EOL;
             $this->execute("UPDATE users SET photo_path = '' WHERE id = {$speaker['id']}");
 
             return;
         }
 
         // Need to guess extension. Cannot trust current file extensions.
-        $file      = new File(__DIR__ . '/../web/uploads/' . $speaker['photo_path']);
+        $file = new File(__DIR__.'/../web/uploads/'.$speaker['photo_path']);
         $extension = $file->guessExtension();
 
         // Otherwise, generate a new filename.
-        $generator   = new PseudoRandomStringGenerator();
-        $newFileName = $generator->generate(40) . '.' . $extension;
+        $generator = new PseudoRandomStringGenerator();
+        $newFileName = $generator->generate(40).'.'.$extension;
 
-        $oldFilePath = __DIR__ . '/../web/uploads/' . $speaker['photo_path'];
-        $newFilePath = __DIR__ . '/../web/uploads/' . $newFileName;
+        $oldFilePath = __DIR__.'/../web/uploads/'.$speaker['photo_path'];
+        $newFilePath = __DIR__.'/../web/uploads/'.$newFileName;
 
         // If photo name is changed in file system, update record in database.
         if (\rename($oldFilePath, $newFilePath)) {
             try {
                 $this->execute("UPDATE users SET photo_path = '{$newFileName}' WHERE id = '{$speaker['id']}'");
 
-                echo "[info] Regenerated photo path for {$speaker['name']}." . PHP_EOL;
+                echo "[info] Regenerated photo path for {$speaker['name']}.".PHP_EOL;
             } catch (\Exception $e) {
                 // If update fails for any reason, revert filename in file system.
                 \rename($newFilePath, $oldFilePath);
@@ -117,7 +117,7 @@ class ResetPhotoPaths extends AbstractMigration
 
     private function fileExists($photoPath)
     {
-        return \file_exists(__DIR__ . '/../web/uploads/' . $photoPath);
+        return \file_exists(__DIR__.'/../web/uploads/'.$photoPath);
     }
 
     private function isSqlite()

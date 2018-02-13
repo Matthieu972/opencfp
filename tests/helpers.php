@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/**
+/*
  * Copyright (c) 2013-2018 OpenCFP
  *
  * For the full copyright and license information, please view
@@ -25,7 +25,7 @@ if (!\function_exists('factory')) {
     {
         $faker = \Faker\Factory::create();
 
-        $factory = Factory::construct($faker, __DIR__ . '/../factories');
+        $factory = Factory::construct($faker, __DIR__.'/../factories');
 
         $arguments = \func_get_args();
 

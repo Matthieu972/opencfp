@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -19,7 +19,7 @@ use OpenCFP\Domain\Model\Talk;
 use OpenCFP\Domain\Speaker\SpeakerProfile;
 
 /**
- * This class is a read only version of a Talk, to be used in the views
+ * This class is a read only version of a Talk, to be used in the views.
  *
  * When initiated without an ID the rating, viewed and favorite functions will return default values
  */
@@ -37,7 +37,7 @@ class TalkProfile
 
     public function __construct(Talk $talk, int $userId = 0)
     {
-        $this->talk   = $talk;
+        $this->talk = $talk;
         $this->userId = $userId;
     }
 

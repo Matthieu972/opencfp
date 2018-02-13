@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -47,19 +47,19 @@ final class CreateAction
         Twig_Environment $twig,
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
-        $this->talkHelper    = $talkHelper;
+        $this->talkHelper = $talkHelper;
         $this->callForPapers = $callForPapers;
-        $this->twig          = $twig;
-        $this->urlGenerator  = $urlGenerator;
+        $this->twig = $twig;
+        $this->urlGenerator = $urlGenerator;
     }
 
     public function __invoke(HttpFoundation\Request $request): HttpFoundation\Response
     {
         if (!$this->callForPapers->isOpen()) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'You cannot create talks once the call for papers has ended',
+                'ext' => 'You cannot create talks once the call for papers has ended',
             ]);
 
             $url = $this->urlGenerator->generate('dashboard');
@@ -68,20 +68,20 @@ final class CreateAction
         }
 
         $content = $this->twig->render('talk/create.twig', [
-            'formAction'     => $this->urlGenerator->generate('talk_create'),
+            'formAction' => $this->urlGenerator->generate('talk_create'),
             'talkCategories' => $this->talkHelper->getTalkCategories(),
-            'talkTypes'      => $this->talkHelper->getTalkTypes(),
-            'talkLevels'     => $this->talkHelper->getTalkLevels(),
-            'title'          => $request->get('title'),
-            'description'    => $request->get('description'),
-            'type'           => $request->get('type'),
-            'level'          => $request->get('level'),
-            'category'       => $request->get('category'),
-            'desired'        => $request->get('desired'),
-            'slides'         => $request->get('slides'),
-            'other'          => $request->get('other'),
-            'sponsor'        => $request->get('sponsor'),
-            'buttonInfo'     => 'Submit my talk!',
+            'talkTypes' => $this->talkHelper->getTalkTypes(),
+            'talkLevels' => $this->talkHelper->getTalkLevels(),
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'type' => $request->get('type'),
+            'level' => $request->get('level'),
+            'category' => $request->get('category'),
+            'desired' => $request->get('desired'),
+            'slides' => $request->get('slides'),
+            'other' => $request->get('other'),
+            'sponsor' => $request->get('sponsor'),
+            'buttonInfo' => 'Submit my talk!',
         ]);
 
         return new HttpFoundation\Response($content);

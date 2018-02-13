@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -41,8 +41,8 @@ final class ViewAction
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
         $this->reviewerUsers = $reviewerUsers;
-        $this->twig          = $twig;
-        $this->urlGenerator  = $urlGenerator;
+        $this->twig = $twig;
+        $this->urlGenerator = $urlGenerator;
     }
 
     /**
@@ -56,9 +56,9 @@ final class ViewAction
 
         if (!$speaker instanceof Model\User) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'Could not find requested speaker',
+                'ext' => 'Could not find requested speaker',
             ]);
 
             $url = $this->urlGenerator->generate('reviewer_speakers');
@@ -74,7 +74,7 @@ final class ViewAction
                 $this->reviewerUsers
             ),
             'talks' => $talks,
-            'page'  => $request->get('page'),
+            'page' => $request->get('page'),
         ]);
 
         return new HttpFoundation\Response($content);

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -16,7 +16,7 @@ namespace OpenCFP\Http\Form;
 use Symfony\Component\HttpFoundation;
 
 /**
- * Form object for our signup & profile pages, handles validation of form data
+ * Form object for our signup & profile pages, handles validation of form data.
  */
 class SignupForm extends Form
 {
@@ -42,11 +42,11 @@ class SignupForm extends Form
         $this->sanitize();
 
         $validPasswords = true;
-        $agreeCoc       = true;
+        $agreeCoc = true;
 
         if ($action === 'create') {
             $validPasswords = $this->validatePasswords();
-            $agreeCoc       = $this->validateAgreeCoc();
+            $agreeCoc = $this->validateAgreeCoc();
         }
 
         $validSpeakerInfo = true;
@@ -125,7 +125,7 @@ class SignupForm extends Form
 
     public function validatePasswords(): bool
     {
-        $passwd  = $this->cleanData['password'];
+        $passwd = $this->cleanData['password'];
         $passwd2 = $this->cleanData['password2'];
 
         if ($passwd == '' || $passwd2 == '') {
@@ -157,7 +157,7 @@ class SignupForm extends Form
 
     public function validateFirstName(): bool
     {
-        $firstName          = $this->cleanData['first_name'];
+        $firstName = $this->cleanData['first_name'];
         $validationResponse = true;
 
         if (empty($firstName)) {
@@ -180,7 +180,7 @@ class SignupForm extends Form
 
     public function validateLastName(): bool
     {
-        $lastName           = $this->cleanData['last_name'];
+        $lastName = $this->cleanData['last_name'];
         $validationResponse = true;
 
         if (empty($lastName)) {
@@ -221,8 +221,8 @@ class SignupForm extends Form
             FILTER_SANITIZE_STRING
         );
         $validationResponse = true;
-        $speakerInfo        = \strip_tags($speakerInfo);
-        $speakerInfo        = $this->purifier->purify($speakerInfo);
+        $speakerInfo = \strip_tags($speakerInfo);
+        $speakerInfo = $this->purifier->purify($speakerInfo);
 
         if (empty($speakerInfo)) {
             $this->addErrorMessage('You submitted speaker info but it was empty after sanitizing');
@@ -239,8 +239,8 @@ class SignupForm extends Form
             FILTER_SANITIZE_STRING
         );
         $validationResponse = true;
-        $speakerBio         = \strip_tags($speakerBio);
-        $speakerBio         = $this->purifier->purify($speakerBio);
+        $speakerBio = \strip_tags($speakerBio);
+        $speakerBio = $this->purifier->purify($speakerBio);
 
         if (empty($speakerBio)) {
             $this->addErrorMessage('You submitted speaker bio information but it was empty after sanitizing');

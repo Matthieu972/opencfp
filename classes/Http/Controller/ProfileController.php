@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -54,10 +54,10 @@ class ProfileController extends BaseController
         UrlGeneratorInterface $urlGenerator,
         PathInterface $path
     ) {
-        $this->authentication        = $authentication;
-        $this->purifier              = $purifier;
+        $this->authentication = $authentication;
+        $this->purifier = $purifier;
         $this->profileImageProcessor = $profileImageProcessor;
-        $this->path                  = $path;
+        $this->path = $path;
 
         parent::__construct($twig, $urlGenerator);
     }
@@ -68,9 +68,9 @@ class ProfileController extends BaseController
 
         if ((string) $user->getId() !== $request->get('id')) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => "You cannot edit someone else's profile",
+                'ext' => "You cannot edit someone else's profile",
             ]);
 
             return $this->redirectTo('dashboard');
@@ -79,22 +79,22 @@ class ProfileController extends BaseController
         $speakerData = User::find($user->getId())->toArray();
 
         return $this->render('user/edit.twig', [
-            'email'          => $user->getLogin(),
-            'first_name'     => $speakerData['first_name'],
-            'last_name'      => $speakerData['last_name'],
-            'company'        => $speakerData['company'],
-            'twitter'        => $speakerData['twitter'],
-            'url'            => $speakerData['url'],
-            'speaker_info'   => $speakerData['info'],
-            'speaker_bio'    => $speakerData['bio'],
-            'speaker_photo'  => $speakerData['photo_path'],
-            'preview_photo'  => $this->path->uploadPath() . $speakerData['photo_path'],
-            'airport'        => $speakerData['airport'],
+            'email' => $user->getLogin(),
+            'first_name' => $speakerData['first_name'],
+            'last_name' => $speakerData['last_name'],
+            'company' => $speakerData['company'],
+            'twitter' => $speakerData['twitter'],
+            'url' => $speakerData['url'],
+            'speaker_info' => $speakerData['info'],
+            'speaker_bio' => $speakerData['bio'],
+            'speaker_photo' => $speakerData['photo_path'],
+            'preview_photo' => $this->path->uploadPath().$speakerData['photo_path'],
+            'airport' => $speakerData['airport'],
             'transportation' => $speakerData['transportation'],
-            'hotel'          => $speakerData['hotel'],
-            'id'             => $user->getId(),
-            'formAction'     => $this->url('user_update'),
-            'buttonInfo'     => 'Update Profile',
+            'hotel' => $speakerData['hotel'],
+            'id' => $user->getId(),
+            'formAction' => $this->url('user_update'),
+            'buttonInfo' => 'Update Profile',
         ]);
     }
 
@@ -104,9 +104,9 @@ class ProfileController extends BaseController
 
         if ((string) $userId !== $request->get('id')) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => "You cannot edit someone else's profile",
+                'ext' => "You cannot edit someone else's profile",
             ]);
 
             return $this->redirectTo('dashboard');
@@ -118,7 +118,7 @@ class ProfileController extends BaseController
             $formData['speaker_photo'] = $request->files->get('speaker_photo');
         }
 
-        $form    = new SignupForm($formData, $this->purifier);
+        $form = new SignupForm($formData, $this->purifier);
         $isValid = $form->validateAll('update');
 
         if ($isValid) {
@@ -133,16 +133,16 @@ class ProfileController extends BaseController
             return $this->redirectTo('dashboard');
         }
         $request->getSession()->set('flash', [
-            'type'  => 'error',
+            'type' => 'error',
             'short' => 'Error',
-            'ext'   => \implode('<br>', $form->getErrorMessages()),
+            'ext' => \implode('<br>', $form->getErrorMessages()),
         ]);
 
         return $this->render('user/edit.twig', \array_merge($formData, [
             'formAction' => $this->url('user_update'),
             'buttonInfo' => 'Update Profile',
-            'id'         => $userId,
-            'flash'      => $request->getSession()->get('flash'),
+            'id' => $userId,
+            'flash' => $request->getSession()->get('flash'),
         ]));
     }
 
@@ -154,25 +154,25 @@ class ProfileController extends BaseController
     private function getFormData(Request $request): array
     {
         $formData = [
-            'email'          => $request->get('email'),
-            'user_id'        => $request->get('id'),
-            'first_name'     => $request->get('first_name'),
-            'last_name'      => $request->get('last_name'),
-            'company'        => $request->get('company'),
-            'twitter'        => $request->get('twitter'),
-            'url'            => $request->get('url'),
-            'airport'        => $request->get('airport'),
+            'email' => $request->get('email'),
+            'user_id' => $request->get('id'),
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
+            'company' => $request->get('company'),
+            'twitter' => $request->get('twitter'),
+            'url' => $request->get('url'),
+            'airport' => $request->get('airport'),
             'transportation' => (int) $request->get('transportation'),
-            'hotel'          => (int) $request->get('hotel'),
-            'speaker_info'   => $request->get('speaker_info') ?: null,
-            'speaker_bio'    => $request->get('speaker_bio') ?: null,
+            'hotel' => (int) $request->get('hotel'),
+            'speaker_info' => $request->get('speaker_info') ?: null,
+            'speaker_bio' => $request->get('speaker_bio') ?: null,
         ];
 
         return $formData;
     }
 
     /**
-     * Transforms the sanitized data array to be used by our User Model for updates
+     * Transforms the sanitized data array to be used by our User Model for updates.
      *
      * @param array $sanitizedData
      *

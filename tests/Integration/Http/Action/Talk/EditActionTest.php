@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -36,7 +36,7 @@ final class EditActionTest extends WebTestCase implements TransactionalTestCase
         $response = $this
             ->asLoggedInSpeaker($speaker->id)
             ->callForPapersIsClosed()
-            ->get('/talk/edit/' . $talk->id . '?token_id=edit_talk&token=' . $csrfToken);
+            ->get('/talk/edit/'.$talk->id.'?token_id=edit_talk&token='.$csrfToken);
 
         $this->assertResponseIsRedirect($response);
         $this->assertResponseBodyNotContains('Edit Your Talk', $response);
@@ -49,7 +49,7 @@ final class EditActionTest extends WebTestCase implements TransactionalTestCase
      */
     public function getRedirectedToDashboardOnEditWhenNoTalkID()
     {
-        /** @var User $speaker*/
+        /** @var User $speaker */
         $speaker = factory(User::class, 1)->create()->first();
 
         $response = $this
@@ -73,7 +73,7 @@ final class EditActionTest extends WebTestCase implements TransactionalTestCase
 
         $response = $this
             ->asLoggedInSpeaker($otherSpeaker->id)
-            ->get('talk/edit/' . $talk->id);
+            ->get('talk/edit/'.$talk->id);
 
         $this->assertResponseBodyNotContains('Edit Your Talk', $response);
         $this->assertResponseIsRedirect($response);
@@ -96,7 +96,7 @@ final class EditActionTest extends WebTestCase implements TransactionalTestCase
 
         $response = $this
             ->asLoggedInSpeaker($speaker->id)
-            ->get('/talk/edit/' . $talk->id . '?token_id=edit_talk&token=' . $csrfToken);
+            ->get('/talk/edit/'.$talk->id.'?token_id=edit_talk&token='.$csrfToken);
 
         $this->assertResponseIsSuccessful($response);
         $this->assertResponseBodyContains($talk->title, $response);
@@ -116,7 +116,7 @@ final class EditActionTest extends WebTestCase implements TransactionalTestCase
 
         $response = $this
             ->asLoggedInSpeaker($speaker->id)
-            ->get('/talk/edit/' . $talk->id . '?token_id=edit_talk&token=' . \uniqid());
+            ->get('/talk/edit/'.$talk->id.'?token_id=edit_talk&token='.\uniqid());
 
         $this->assertResponseIsRedirect($response);
         $this->assertRedirectResponseUrlContains('/dashboard', $response);

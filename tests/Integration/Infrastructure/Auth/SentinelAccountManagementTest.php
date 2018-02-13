@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -36,7 +36,7 @@ final class SentinelAccountManagementTest extends WebTestCase implements Transac
     {
         parent::setUp();
         $this->sentinel = (new Sentinel())->getSentinel();
-        $this->sut      = new SentinelAccountManagement($this->sentinel);
+        $this->sut = new SentinelAccountManagement($this->sentinel);
     }
 
     /**
@@ -46,7 +46,7 @@ final class SentinelAccountManagementTest extends WebTestCase implements Transac
     {
         $this->sut->create('test@example.com', 'secret', [
             'first_name' => 'Test',
-            'last_name'  => 'Account',
+            'last_name' => 'Account',
         ]);
 
         $user = $this->sut->findByLogin('test@example.com');
@@ -57,12 +57,12 @@ final class SentinelAccountManagementTest extends WebTestCase implements Transac
     {
         $this->sut->create('test@example.com', 'secret', [
             'first_name' => 'Test',
-            'last_name'  => 'Account',
+            'last_name' => 'Account',
         ]);
         $this->expectException(UserExistsException::class);
         $this->sut->create('test@example.com', 'asdfasf', [
             'first_name' => 'Second',
-            'last_name'  => 'Account',
+            'last_name' => 'Account',
         ]);
     }
 
@@ -73,7 +73,7 @@ final class SentinelAccountManagementTest extends WebTestCase implements Transac
     {
         $this->sut->create('test@example.com', 'secret', [
             'first_name' => 'Test',
-            'last_name'  => 'Account',
+            'last_name' => 'Account',
         ]);
         $someUser = User::first();
 
@@ -88,7 +88,7 @@ final class SentinelAccountManagementTest extends WebTestCase implements Transac
     {
         $this->sut->create('test@example.com', 'secret', [
             'first_name' => 'Test',
-            'last_name'  => 'Account',
+            'last_name' => 'Account',
         ]);
 
         $user = $this->sut->findByLogin('test@example.com');
@@ -102,7 +102,7 @@ final class SentinelAccountManagementTest extends WebTestCase implements Transac
     {
         $this->sut->create('test@example.com', 'secret', [
             'first_name' => 'Test',
-            'last_name'  => 'Account',
+            'last_name' => 'Account',
         ]);
         $this->sut->promoteTo('test@example.com', 'Admin');
         $users = $this->sut->findByRole('Admin');
@@ -117,7 +117,7 @@ final class SentinelAccountManagementTest extends WebTestCase implements Transac
     {
         $this->sut->create('test@example.com', 'secret', [
             'first_name' => 'Test',
-            'last_name'  => 'Account',
+            'last_name' => 'Account',
         ]);
         $user = $this->sut->findByLogin('test@example.com')->getUser();
         //Check there are no records of activation for the user;
@@ -136,7 +136,7 @@ final class SentinelAccountManagementTest extends WebTestCase implements Transac
     {
         $this->sut->create('test@example.com', 'secret', [
             'first_name' => 'Test',
-            'last_name'  => 'Account',
+            'last_name' => 'Account',
         ]);
         $this->sut->promoteTo('test@example.com', 'Admin');
         $user = $this->sut->findByLogin('test@example.com');
@@ -150,7 +150,7 @@ final class SentinelAccountManagementTest extends WebTestCase implements Transac
     {
         $this->sut->create('test@example.com', 'secret', [
             'first_name' => 'Test',
-            'last_name'  => 'Account',
+            'last_name' => 'Account',
         ]);
         $this->sut->promoteTo('test@example.com', 'Admin');
         $user = $this->sut->findByLogin('test@example.com');

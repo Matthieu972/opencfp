@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -44,7 +44,7 @@ class User extends Eloquent
      */
     public function getOtherTalks($talkId = 0): Collection
     {
-        $allTalks   = $this->talks;
+        $allTalks = $this->talks;
         $otherTalks = $allTalks->filter(function ($talk) use ($talkId) {
             if ((int) $talk['id'] == (int) $talkId) {
                 return false;
@@ -77,13 +77,13 @@ class User extends Eloquent
         }
 
         return $builder
-            ->where('first_name', 'like', '%' . $search . '%')
-            ->orWhere('last_name', 'like', '%' . $search . '%')
+            ->where('first_name', 'like', '%'.$search.'%')
+            ->orWhere('last_name', 'like', '%'.$search.'%')
             ->orderBy($orderByColumn, $orderByDirection);
     }
 
     /**
-     * Deletes user, all of their talks, and meta/favorites/comments
+     * Deletes user, all of their talks, and meta/favorites/comments.
      *
      * @throws \Exception
      *

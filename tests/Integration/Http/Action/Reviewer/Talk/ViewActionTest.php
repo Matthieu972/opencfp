@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -28,7 +28,7 @@ final class ViewActionTest extends WebTestCase implements TransactionalTestCase
 
         $response = $this
             ->asReviewer()
-            ->get('/reviewer/talks/' . $id);
+            ->get('/reviewer/talks/'.$id);
 
         $this->assertResponseBodyNotContains('title="I want to see this talk"', $response);
         $this->assertResponseIsRedirect($response);
@@ -44,7 +44,7 @@ final class ViewActionTest extends WebTestCase implements TransactionalTestCase
 
         $response = $this
             ->asReviewer()
-            ->get('/reviewer/talks/' . $talk->id);
+            ->get('/reviewer/talks/'.$talk->id);
 
         $this->assertResponseIsSuccessful($response);
         $this->assertResponseBodyContains($talk->title, $response);

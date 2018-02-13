@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -51,16 +51,16 @@ class ExportsController extends BaseController
 
     public function emailExportAction(): Response
     {
-        $talks     = Talk::all();
+        $talks = Talk::all();
         $formatted = [];
 
         foreach ($talks as $talk) {
             $formatted[] = [
-                'title'      => $talk->title,
-                'selected'   => $talk->selected,
+                'title' => $talk->title,
+                'selected' => $talk->selected,
                 'first_name' => $talk->speaker->first_name,
-                'last_name'  => $talk->speaker->last_name,
-                'email'      => $talk->speaker->email,
+                'last_name' => $talk->speaker->last_name,
+                'email' => $talk->speaker->email,
             ];
         }
 
@@ -105,7 +105,7 @@ class ExportsController extends BaseController
                 || $this->startsWith($info, '-')
                 || $this->startsWith($info, '@')
             ) {
-            $info = "'" . $info;
+            $info = "'".$info;
         }
 
         return $info;
@@ -122,22 +122,22 @@ class ExportsController extends BaseController
     {
         if (\count($contents) === 0) {
             $this->session->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'There were no talks that matched selected criteria.',
+                'ext' => 'There were no talks that matched selected criteria.',
             ]);
 
             return $this->redirectTo('admin');
         }
 
-        $keys   = \implode(',', \array_keys($contents[0]));
-        $output = $keys . "\n";
+        $keys = \implode(',', \array_keys($contents[0]));
+        $output = $keys."\n";
 
         foreach ($contents as $content) {
             $content = \array_map([$this, 'csvFormat'], $content);
-            $output  = $output . \implode(',', $content) . "\n";
+            $output = $output.\implode(',', $content)."\n";
         }
 
-        return $this->export($output, $filename . '.csv');
+        return $this->export($output, $filename.'.csv');
     }
 }

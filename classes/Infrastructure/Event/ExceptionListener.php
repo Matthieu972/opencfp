@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -32,7 +32,7 @@ class ExceptionListener implements EventSubscriberInterface
     public function onKernelException(GetResponseForExceptionEvent $event)
     {
         $exception = $event->getException();
-        $request   = $event->getRequest();
+        $request = $event->getRequest();
 
         if (!\in_array('application/json', $request->getAcceptableContentTypes())) {
             return;
@@ -43,11 +43,11 @@ class ExceptionListener implements EventSubscriberInterface
 
     private function renderResponse(\Throwable $exception): Response
     {
-        $code    = Response::HTTP_INTERNAL_SERVER_ERROR;
+        $code = Response::HTTP_INTERNAL_SERVER_ERROR;
         $headers = [];
 
         if ($exception instanceof HttpExceptionInterface) {
-            $code    = $exception->getStatusCode();
+            $code = $exception->getStatusCode();
             $headers = $exception->getHeaders();
         }
 

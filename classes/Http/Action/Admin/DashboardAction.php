@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -33,7 +33,7 @@ final class DashboardAction
     public function __construct(Services\Authentication $authentication, Talk\TalkFormatter $talkFormatter)
     {
         $this->authentication = $authentication;
-        $this->talkFormatter  = $talkFormatter;
+        $this->talkFormatter = $talkFormatter;
     }
 
     /**
@@ -42,11 +42,11 @@ final class DashboardAction
     public function __invoke(): array
     {
         return [
-            'speakerTotal'  => Model\User::count(),
-            'talkTotal'     => Model\Talk::count(),
+            'speakerTotal' => Model\User::count(),
+            'talkTotal' => Model\Talk::count(),
             'favoriteTotal' => Model\Favorite::count(),
-            'selectTotal'   => Model\Talk::where('selected', 1)->count(),
-            'talks'         => $this->talkFormatter->formatList(
+            'selectTotal' => Model\Talk::where('selected', 1)->count(),
+            'talks' => $this->talkFormatter->formatList(
                 Model\Talk::recent()->get(),
                 $this->authentication->user()->getId()
             ),

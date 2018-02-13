@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -31,7 +31,7 @@ final class PromoteActionTest extends Framework\TestCase
         $faker = $this->faker();
 
         $role = $faker->word;
-        $id   = $faker->numberBetween(1);
+        $id = $faker->numberBetween(1);
 
         $url = $faker->url;
 
@@ -41,9 +41,9 @@ final class PromoteActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Error',
-                    'ext'   => \sprintf(
+                    'ext' => \sprintf(
                         'User with id "%s" could not be found.',
                         $id
                     ),
@@ -100,7 +100,7 @@ final class PromoteActionTest extends Framework\TestCase
         $faker = $this->faker();
 
         $role = $faker->word;
-        $id   = $faker->numberBetween(1);
+        $id = $faker->numberBetween(1);
 
         $url = $faker->url;
 
@@ -110,9 +110,9 @@ final class PromoteActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Error',
-                    'ext'   => \sprintf(
+                    'ext' => \sprintf(
                         'User already is in the "%s" group.',
                         $role
                     ),
@@ -175,8 +175,8 @@ final class PromoteActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $role  = $faker->word;
-        $id    = $faker->numberBetween(1);
+        $role = $faker->word;
+        $id = $faker->numberBetween(1);
         $email = $faker->email;
 
         $url = $faker->url;
@@ -187,9 +187,9 @@ final class PromoteActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Error',
-                    'ext'   => \sprintf(
+                    'ext' => \sprintf(
                         'Role "%s" could not be found.',
                         $role
                     ),
@@ -265,8 +265,8 @@ final class PromoteActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $role  = $faker->word;
-        $id    = $faker->numberBetween(1);
+        $role = $faker->word;
+        $id = $faker->numberBetween(1);
         $email = $faker->email;
 
         $url = $faker->url;
@@ -277,9 +277,9 @@ final class PromoteActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'success',
+                    'type' => 'success',
                     'short' => 'Success',
-                    'ext'   => '',
+                    'ext' => '',
                 ])
             )
             ->shouldBeCalled();

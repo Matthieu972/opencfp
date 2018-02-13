@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -66,7 +66,7 @@ final class RateAction
             new Translation\Translator(
                 new Translation\FileLoader(
                     new Filesystem(),
-                    __DIR__ . '/../../../resources/lang'
+                    __DIR__.'/../../../resources/lang'
                 ),
                 'en'
             ),
