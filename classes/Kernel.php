@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -66,17 +66,17 @@ final class Kernel extends SymfonyKernel
             $this->bindConfiguration($container, $this->loadConfigurationFor($this->getEnvironment()));
         });
 
-        $loader->load($this->getProjectDir() . '/resources/config/config_' . $this->getEnvironment() . '.yml');
+        $loader->load($this->getProjectDir().'/resources/config/config_'.$this->getEnvironment().'.yml');
     }
 
     public function getCacheDir()
     {
-        return $this->getProjectDir() . '/cache/' . $this->getEnvironment();
+        return $this->getProjectDir().'/cache/'.$this->getEnvironment();
     }
 
     public function getLogDir()
     {
-        return $this->getProjectDir() . '/log';
+        return $this->getProjectDir().'/log';
     }
 
     protected function build(ContainerBuilder $container)
@@ -88,7 +88,7 @@ final class Kernel extends SymfonyKernel
 
     private function loadConfigurationFor(string $environment): array
     {
-        $configFile = $this->getProjectDir() . '/config/' . $environment . '.yml';
+        $configFile = $this->getProjectDir().'/config/'.$environment.'.yml';
 
         if (!\file_exists($configFile)) {
             throw new \RuntimeException(\sprintf(
@@ -99,11 +99,11 @@ final class Kernel extends SymfonyKernel
 
         return \array_merge(
             [
-                'log'  => ['level' => 'DEBUG'],
+                'log' => ['level' => 'DEBUG'],
                 'talk' => [
                     'categories' => null,
-                    'levels'     => null,
-                    'types'      => null,
+                    'levels' => null,
+                    'types' => null,
                 ],
                 'reviewer' => ['users' => []],
             ],

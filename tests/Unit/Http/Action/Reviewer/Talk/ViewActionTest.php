@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -30,7 +30,7 @@ final class ViewActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $id  = $faker->numberBetween(1);
+        $id = $faker->numberBetween(1);
         $url = $faker->text;
 
         $session = $this->prophesize(HttpFoundation\Session\SessionInterface::class);
@@ -39,9 +39,9 @@ final class ViewActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Error',
-                    'ext'   => 'Could not find requested talk',
+                    'ext' => 'Could not find requested talk',
                 ])
             )
             ->shouldBeCalled();
@@ -94,7 +94,7 @@ final class ViewActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $id      = $faker->numberBetween(1);
+        $id = $faker->numberBetween(1);
         $content = $faker->text;
 
         $request = $this->prophesize(HttpFoundation\Request::class);

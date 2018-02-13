@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -34,7 +34,7 @@ final class UpdateActionTest extends Framework\TestCase
         $faker = $this->faker();
 
         $talkId = $faker->numberBetween(1);
-        $url    = $faker->slug();
+        $url = $faker->slug();
 
         $session = $this->prophesize(HttpFoundation\Session\SessionInterface::class);
 
@@ -42,9 +42,9 @@ final class UpdateActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Read Only',
-                    'ext'   => 'You cannot edit talks once the call for papers has ended',
+                    'ext' => 'You cannot edit talks once the call for papers has ended',
                 ])
             )
             ->shouldBeCalled();
@@ -80,8 +80,8 @@ final class UpdateActionTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($url);
 
-        $applicationEmail   = $faker->email;
-        $applicationTitle   = $faker->sentence;
+        $applicationEmail = $faker->email;
+        $applicationTitle = $faker->sentence;
         $applicationEndDate = $faker->dateTime()->format('Y-m-d H:i:s');
 
         $action = new UpdateAction(

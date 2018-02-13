@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -36,7 +36,7 @@ class AuthenticationListener implements EventSubscriberInterface
     public function __construct(Authentication $authentication, UrlGeneratorInterface $urlGenerator)
     {
         $this->authentication = $authentication;
-        $this->urlGenerator   = $urlGenerator;
+        $this->urlGenerator = $urlGenerator;
     }
 
     public static function getSubscribedEvents()

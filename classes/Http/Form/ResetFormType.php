@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -25,9 +25,9 @@ class ResetFormType extends AbstractType
     {
         $builder
             ->add('password', RepeatedType::class, [
-                'type'            => PasswordType::class,
-                'first_options'   => ['label' => 'Password (minimum 5 characters)'],
-                'second_options'  => ['label' => 'Password (confirm)'],
+                'type' => PasswordType::class,
+                'first_options' => ['label' => 'Password (minimum 5 characters)'],
+                'second_options' => ['label' => 'Password (confirm)'],
                 'invalid_message' => 'Passwords did not match', ])
             ->add('user_id', HiddenType::class)
             ->add('reset_code', HiddenType::class)

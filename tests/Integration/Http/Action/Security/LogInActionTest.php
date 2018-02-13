@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -27,7 +27,7 @@ final class LogInActionTest extends WebTestCase implements TransactionalTestCase
 
         $response = $this
             ->post('/login', [
-                'email'    => $user->email,
+                'email' => $user->email,
                 'password' => $this->faker()->password,
             ]);
 

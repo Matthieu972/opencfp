@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -32,7 +32,7 @@ abstract class TalkRating implements TalkRatingStrategy
     public function __construct(TalkMeta $meta, Authentication $auth)
     {
         $this->adminId = $auth->user()->getId();
-        $this->meta    = $meta;
+        $this->meta = $meta;
     }
 
     final public function rate(int $talkId, int $rating)
@@ -45,7 +45,7 @@ abstract class TalkRating implements TalkRatingStrategy
 
     private function saveRating(int $talkId, int $rating)
     {
-        $meta         = $this->fetchMetaInfo($talkId);
+        $meta = $this->fetchMetaInfo($talkId);
         $meta->rating = $rating;
         $meta->save();
     }
@@ -54,7 +54,7 @@ abstract class TalkRating implements TalkRatingStrategy
     {
         return $this->meta->firstOrCreate([
             'admin_user_id' => $this->adminId,
-            'talk_id'       => $talkId,
+            'talk_id' => $talkId,
         ]);
     }
 }

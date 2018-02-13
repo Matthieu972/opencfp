@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -41,7 +41,7 @@ final class ChangePasswordProcessActionTest extends WebTestCase implements Trans
         $response = $this
             ->asLoggedInSpeaker($user->id)
             ->post('/profile/change_password', [
-                'password'         => '',
+                'password' => '',
                 'password_confirm' => '',
             ]);
 
@@ -54,7 +54,7 @@ final class ChangePasswordProcessActionTest extends WebTestCase implements Trans
     {
         $faker = $this->faker();
 
-        $password             = $faker->unique()->password;
+        $password = $faker->unique()->password;
         $passwordConfirmation = $faker->unique()->password;
 
         /** @var Model\User $user */
@@ -63,7 +63,7 @@ final class ChangePasswordProcessActionTest extends WebTestCase implements Trans
         $response = $this
             ->asLoggedInSpeaker($user->id)
             ->post('/profile/change_password', [
-                'password'         => $password,
+                'password' => $password,
                 'password_confirm' => $passwordConfirmation,
             ]);
 

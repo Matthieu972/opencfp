@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -75,12 +75,12 @@ class SpeakersController extends BaseController
         int $applicationArrival,
         int $applicationDeparture
     ) {
-        $this->authentication       = $authentication;
-        $this->accounts             = $accounts;
-        $this->airports             = $airports;
-        $this->capsule              = $capsule;
-        $this->applicationAirport   = $applicationAirport;
-        $this->applicationArrival   = $applicationArrival;
+        $this->authentication = $authentication;
+        $this->accounts = $accounts;
+        $this->airports = $airports;
+        $this->capsule = $capsule;
+        $this->applicationAirport = $applicationAirport;
+        $this->applicationArrival = $applicationArrival;
         $this->applicationDeparture = $applicationDeparture;
 
         parent::__construct($twig, $urlGenerator);
@@ -90,9 +90,9 @@ class SpeakersController extends BaseController
     {
         $search = $request->get('search');
 
-        $adminUsers      = $this->accounts->findByRole('Admin');
-        $adminUserIds    = \array_column($adminUsers, 'id');
-        $reviewerUsers   = $this->accounts->findByRole('Reviewer');
+        $adminUsers = $this->accounts->findByRole('Admin');
+        $adminUserIds = \array_column($adminUsers, 'id');
+        $reviewerUsers = $this->accounts->findByRole('Reviewer');
         $reviewerUserIds = \array_column($reviewerUsers, 'id');
 
         $rawSpeakers = User::search($search)->get();
@@ -102,8 +102,8 @@ class SpeakersController extends BaseController
                 $airport = $this->airports->withCode($speaker['airport']);
 
                 $speaker['airport'] = [
-                    'code'    => $airport->code,
-                    'name'    => $airport->name,
+                    'code' => $airport->code,
+                    'name' => $airport->name,
                     'country' => $airport->country,
                 ];
             } catch (EntityNotFoundException $e) {
@@ -122,13 +122,13 @@ class SpeakersController extends BaseController
         $pagination = $pagerfanta->createView('/admin/speakers?');
 
         return $this->render('admin/speaker/index.twig', [
-            'airport'    => $this->applicationAirport,
-            'arrival'    => \date('Y-m-d', $this->applicationArrival),
-            'departure'  => \date('Y-m-d', $this->applicationDeparture),
+            'airport' => $this->applicationAirport,
+            'arrival' => \date('Y-m-d', $this->applicationArrival),
+            'departure' => \date('Y-m-d', $this->applicationDeparture),
             'pagination' => $pagination,
-            'speakers'   => $pagerfanta->getFanta(),
-            'page'       => $pagerfanta->getCurrentPage(),
-            'search'     => $search ?: '',
+            'speakers' => $pagerfanta->getFanta(),
+            'page' => $pagerfanta->getCurrentPage(),
+            'search' => $search ?: '',
         ]);
     }
 
@@ -138,9 +138,9 @@ class SpeakersController extends BaseController
 
         if (!$speakerDetails instanceof User) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'Could not find requested speaker',
+                'ext' => 'Could not find requested speaker',
             ]);
 
             return $this->redirectTo('admin_speakers');
@@ -150,8 +150,8 @@ class SpeakersController extends BaseController
             $airport = $this->airports->withCode($speakerDetails->airport);
 
             $speakerDetails->airport = [
-                'code'    => $airport->code,
-                'name'    => $airport->name,
+                'code' => $airport->code,
+                'name' => $airport->name,
                 'country' => $airport->country,
             ];
         } catch (EntityNotFoundException $e) {
@@ -162,12 +162,12 @@ class SpeakersController extends BaseController
 
         // Build and render the template
         return $this->render('admin/speaker/view.twig', [
-            'airport'   => $this->applicationAirport,
-            'arrival'   => \date('Y-m-d', $this->applicationArrival),
+            'airport' => $this->applicationAirport,
+            'arrival' => \date('Y-m-d', $this->applicationArrival),
             'departure' => \date('Y-m-d', $this->applicationDeparture),
-            'speaker'   => new SpeakerProfile($speakerDetails),
-            'talks'     => $talks,
-            'page'      => $request->get('page'),
+            'speaker' => new SpeakerProfile($speakerDetails),
+            'talks' => $talks,
+            'page' => $request->get('page'),
         ]);
     }
 
@@ -178,22 +178,22 @@ class SpeakersController extends BaseController
         try {
             $user = User::findorFail($request->get('id'));
             $user->delete($request->get('id'));
-            $ext   = 'Successfully deleted the requested user';
-            $type  = 'success';
+            $ext = 'Successfully deleted the requested user';
+            $type = 'success';
             $short = 'Success';
             $this->capsule->getConnection()->commit();
         } catch (\Exception $e) {
             $this->capsule->getConnection()->rollBack();
-            $ext   = 'Unable to delete the requested user';
-            $type  = 'error';
+            $ext = 'Unable to delete the requested user';
+            $type = 'error';
             $short = 'Error';
         }
 
         // Set flash message
         $request->getSession()->set('flash', [
-            'type'  => $type,
+            'type' => $type,
             'short' => $short,
-            'ext'   => $ext,
+            'ext' => $ext,
         ]);
 
         return $this->redirectTo('admin_speakers');
@@ -202,13 +202,13 @@ class SpeakersController extends BaseController
     public function demoteAction(Request $request): Response
     {
         $role = $request->get('role');
-        $id   = (int) $request->get('id');
+        $id = (int) $request->get('id');
 
         if ($this->authentication->user()->getId() == $id) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'Sorry, you cannot remove yourself as ' . $role . '.',
+                'ext' => 'Sorry, you cannot remove yourself as '.$role.'.',
             ]);
 
             return $this->redirectTo('admin_speakers');
@@ -219,15 +219,15 @@ class SpeakersController extends BaseController
             $this->accounts->demoteFrom($user->getLogin(), $role);
 
             $request->getSession()->set('flash', [
-                'type'  => 'success',
+                'type' => 'success',
                 'short' => 'Success',
-                'ext'   => '',
+                'ext' => '',
             ]);
         } catch (\Exception $e) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'We were unable to remove the ' . $role . '. Please try again.',
+                'ext' => 'We were unable to remove the '.$role.'. Please try again.',
             ]);
         }
 

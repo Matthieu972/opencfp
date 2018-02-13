@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -25,7 +25,7 @@ class Pagination
 
     public function __construct($talkList, int $perPage = 20)
     {
-        $adapter    = new \Pagerfanta\Adapter\ArrayAdapter($talkList);
+        $adapter = new \Pagerfanta\Adapter\ArrayAdapter($talkList);
         $pagerFanta = new Pagerfanta($adapter);
         $pagerFanta->setMaxPerPage($perPage);
         $this->pagerFanta = $pagerFanta;
@@ -43,7 +43,7 @@ class Pagination
         $routeGenerator = function ($page) use ($queryParams, $baseUrl) {
             $queryParams['page'] = $page;
 
-            return $baseUrl . \http_build_query($queryParams);
+            return $baseUrl.\http_build_query($queryParams);
         };
 
         $view = new DefaultView();

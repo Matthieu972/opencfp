@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/**
+/*
  * Copyright (c) 2013-2018 OpenCFP
  *
  * For the full copyright and license information, please view
@@ -14,7 +14,7 @@ declare(strict_types=1);
 use OpenCFP\Environment;
 use OpenCFP\Kernel;
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__.'/vendor/autoload.php';
 
 $kernel = new Kernel((string) Environment::fromServer($_SERVER), false);
 $kernel->boot();
@@ -27,13 +27,13 @@ return [
     ],
     'environments' => [
         'default_migration_table' => 'phinxlog',
-        'default_database'        => $kernel->getEnvironment(),
+        'default_database' => $kernel->getEnvironment(),
         $kernel->getEnvironment() => [
             'adapter' => 'mysql',
-            'host'    => $container->getParameter('database.host'),
-            'name'    => $container->getParameter('database.database'),
-            'user'    => $container->getParameter('database.user'),
-            'pass'    => $container->getParameter('database.password'),
+            'host' => $container->getParameter('database.host'),
+            'name' => $container->getParameter('database.database'),
+            'user' => $container->getParameter('database.user'),
+            'pass' => $container->getParameter('database.password'),
         ],
     ],
 ];

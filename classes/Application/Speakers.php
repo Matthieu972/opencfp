@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -51,7 +51,7 @@ class Speakers
     public function getTalk(int $talkId)
     {
         $speaker = $this->identityProvider->getCurrentUser();
-        $talk    = $speaker->talks()->find($talkId);
+        $talk = $speaker->talks()->find($talkId);
 
         // If it can't grab by relation, it's likely not their talk.
         if (!$talk instanceof Talk) {

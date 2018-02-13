@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -34,8 +34,8 @@ final class CreateProcessActionTest extends Framework\TestCase
 
         $url = $faker->url;
 
-        $applicationEmail   = $faker->email;
-        $applicationTitle   = $faker->sentence;
+        $applicationEmail = $faker->email;
+        $applicationTitle = $faker->sentence;
         $applicationEndDate = $faker->dateTime()->format('Y-m-d H:i:s');
 
         $session = $this->prophesize(HttpFoundation\Session\SessionInterface::class);
@@ -44,9 +44,9 @@ final class CreateProcessActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Error',
-                    'ext'   => 'You cannot create talks once the call for papers has ended',
+                    'ext' => 'You cannot create talks once the call for papers has ended',
                 ])
             )
             ->shouldBeCalled();

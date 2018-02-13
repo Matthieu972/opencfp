@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -137,7 +137,7 @@ abstract class WebTestCase extends KernelTestCase
 
     final protected function callForPapersIsOpen(): self
     {
-        $cfp    = $this->container->get(CallForPapers::class);
+        $cfp = $this->container->get(CallForPapers::class);
         $method = new \ReflectionMethod(CallForPapers::class, 'setEndDate');
         $method->setAccessible(true);
         $method->invoke($cfp, new \DateTimeImmutable('+1 week'));
@@ -149,7 +149,7 @@ abstract class WebTestCase extends KernelTestCase
 
     final protected function callForPapersIsClosed(): self
     {
-        $cfp    = $this->container->get(CallForPapers::class);
+        $cfp = $this->container->get(CallForPapers::class);
         $method = new \ReflectionMethod(CallForPapers::class, 'setEndDate');
         $method->setAccessible(true);
         $method->invoke($cfp, new \DateTimeImmutable('-1 week'));
@@ -161,7 +161,7 @@ abstract class WebTestCase extends KernelTestCase
 
     final protected function isOnlineConference(): self
     {
-        $config                      = $this->container->getParameter('config.application');
+        $config = $this->container->getParameter('config.application');
         $config['online_conference'] = true;
         $this->container->get('twig')->addGlobal('site', $config);
 

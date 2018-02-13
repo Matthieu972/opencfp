@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -20,7 +20,7 @@ use OpenCFP\Test\Integration\WebTestCase;
 final class ViewActionTest extends WebTestCase implements TransactionalTestCase
 {
     /**
-     * Verify that not found talk redirects
+     * Verify that not found talk redirects.
      *
      * @test
      */
@@ -28,7 +28,7 @@ final class ViewActionTest extends WebTestCase implements TransactionalTestCase
     {
         $id = $this->faker()->numberBetween(1);
 
-        $response = $this->get('/admin/talks/' . $id);
+        $response = $this->get('/admin/talks/'.$id);
 
         $this->assertResponseIsRedirect($response);
         $this->assertResponseBodyNotContains('<strong>Submitted by:</strong>', $response);
@@ -44,7 +44,7 @@ final class ViewActionTest extends WebTestCase implements TransactionalTestCase
 
         $response = $this
             ->asAdmin()
-            ->get('/admin/talks/' . $talk->id);
+            ->get('/admin/talks/'.$talk->id);
 
         $this->assertResponseIsSuccessful($response);
     }
@@ -59,7 +59,7 @@ final class ViewActionTest extends WebTestCase implements TransactionalTestCase
 
         $response = $this
             ->asAdmin($talkMeta->admin_user_id)
-            ->get('/admin/talks/' . $talkMeta->talk_id);
+            ->get('/admin/talks/'.$talkMeta->talk_id);
 
         $this->assertResponseIsSuccessful($response);
     }

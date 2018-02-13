@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -39,7 +39,7 @@ class SpeakerProfile
      */
     public function __construct(User $speaker, array $hiddenProperties = [])
     {
-        $this->speaker          = $speaker;
+        $this->speaker = $speaker;
         $this->hiddenProperties = $hiddenProperties;
     }
 
@@ -61,7 +61,7 @@ class SpeakerProfile
     }
 
     /**
-     * Retrieves all of the speakers talks
+     * Retrieves all of the speakers talks.
      *
      * @throws NotAllowedException
      *
@@ -83,7 +83,7 @@ class SpeakerProfile
     {
         $this->assertAllowedToSee('name');
 
-        return $this->speaker->first_name . ' ' . $this->speaker->last_name;
+        return $this->speaker->first_name.' '.$this->speaker->last_name;
     }
 
     /**

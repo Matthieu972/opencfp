@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -21,7 +21,7 @@ use OpenCFP\Test\Integration\WebTestCase;
 final class TalksControllerTest extends WebTestCase implements TransactionalTestCase
 {
     /**
-     * A test to make sure that comments can be correctly tracked
+     * A test to make sure that comments can be correctly tracked.
      *
      * @test
      */
@@ -35,7 +35,7 @@ final class TalksControllerTest extends WebTestCase implements TransactionalTest
 
         $response = $this
             ->asAdmin($admin->id)
-            ->post('/admin/talks/' . $talk->id . '/comment', [
+            ->post('/admin/talks/'.$talk->id.'/comment', [
                 'comment' => 'Great Talk i rate 10/10',
             ]);
 
@@ -56,7 +56,7 @@ final class TalksControllerTest extends WebTestCase implements TransactionalTest
 
         $response = $this
             ->asAdmin($admin->id)
-            ->post('/admin/talks/' . $talk->id . '/select');
+            ->post('/admin/talks/'.$talk->id.'/select');
 
         $this->assertResponseIsSuccessful($response);
         $this->assertResponseBodyContains('1', $response);
@@ -75,7 +75,7 @@ final class TalksControllerTest extends WebTestCase implements TransactionalTest
 
         $response = $this
             ->asAdmin($admin->id)
-            ->post('/admin/talks/' . $talk->id . '/select', [
+            ->post('/admin/talks/'.$talk->id.'/select', [
                 'delete' => 1,
             ]);
 
@@ -115,7 +115,7 @@ final class TalksControllerTest extends WebTestCase implements TransactionalTest
 
         $response = $this
             ->asAdmin($admin->id)
-            ->post('/admin/talks/' . $talk->id . '/favorite');
+            ->post('/admin/talks/'.$talk->id.'/favorite');
 
         $this->assertResponseIsSuccessful($response);
         $this->assertResponseBodyContains('1', $response);
@@ -134,7 +134,7 @@ final class TalksControllerTest extends WebTestCase implements TransactionalTest
 
         $response = $this
             ->asAdmin($admin->id)
-            ->post('/admin/talks/' . $talk->id . '/favorite', [
+            ->post('/admin/talks/'.$talk->id.'/favorite', [
                 'delete' => 1,
             ]);
 

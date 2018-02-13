@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -42,8 +42,8 @@ final class PromoteActionTest extends WebTestCase implements TransactionalTestCa
                     $id
                 ),
                 [
-                    'role'     => 'Admin',
-                    'token'    => $csrfToken,
+                    'role' => 'Admin',
+                    'token' => $csrfToken,
                     'token_id' => 'admin_speaker_promote',
                 ]
             );
@@ -73,7 +73,7 @@ final class PromoteActionTest extends WebTestCase implements TransactionalTestCa
         /** @var Services\AccountManagement $accountManagement */
         $accountManagement = $this->container->get(Services\AccountManagement::class);
 
-        $accountManagement ->promoteTo(
+        $accountManagement->promoteTo(
             $speaker->email,
             'admin'
         );
@@ -90,8 +90,8 @@ final class PromoteActionTest extends WebTestCase implements TransactionalTestCa
                     $speaker->id
                 ),
                 [
-                    'role'     => 'Admin',
-                    'token'    => $csrfToken,
+                    'role' => 'Admin',
+                    'token' => $csrfToken,
                     'token_id' => 'admin_speaker_promote',
                 ]
             );
@@ -124,8 +124,8 @@ final class PromoteActionTest extends WebTestCase implements TransactionalTestCa
                     $speaker->id
                 ),
                 [
-                    'role'     => 'Admin',
-                    'token'    => $csrfToken,
+                    'role' => 'Admin',
+                    'token' => $csrfToken,
                     'token_id' => 'admin_speaker_promote',
                 ]
             );
@@ -154,8 +154,8 @@ final class PromoteActionTest extends WebTestCase implements TransactionalTestCa
                     $speaker->id
                 ),
                 [
-                    'role'     => 'Admin',
-                    'token'    => \uniqid(),
+                    'role' => 'Admin',
+                    'token' => \uniqid(),
                     'token_id' => 'admin_speaker_promote',
                 ]
             );

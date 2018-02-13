@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -41,7 +41,7 @@ class TalkHandler
         Authentication $authentication,
         TalkRatingStrategy $ratingStrategy
     ) {
-        $this->userId         = $authentication->user()->getId();
+        $this->userId = $authentication->user()->getId();
         $this->ratingStrategy = $ratingStrategy;
     }
 
@@ -60,7 +60,7 @@ class TalkHandler
     }
 
     /**
-     * Sets the Talk according to the ID
+     * Sets the Talk according to the ID.
      *
      * @param int $talkId
      *
@@ -105,7 +105,7 @@ class TalkHandler
     }
 
     /**
-     * Creates or deletes a favorite of the current user
+     * Creates or deletes a favorite of the current user.
      *
      * @param bool $create will create a favorite on true, and delete it on false
      *
@@ -126,7 +126,7 @@ class TalkHandler
             ->favorites()
             ->firstOrCreate([
                 'admin_user_id' => $this->userId,
-                'talk_id'       => $this->talk->id,
+                'talk_id' => $this->talk->id,
             ]);
 
         return true;

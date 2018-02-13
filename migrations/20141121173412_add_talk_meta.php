@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/**
+/*
  * Copyright (c) 2013-2018 OpenCFP
  *
  * For the full copyright and license information, please view
@@ -16,7 +16,7 @@ use Phinx\Migration\AbstractMigration;
 class AddTalkMeta extends AbstractMigration
 {
     /**
-     * Create Talk Meta Table
+     * Create Talk Meta Table.
      */
     public function change()
     {

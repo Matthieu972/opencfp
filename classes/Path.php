@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -32,11 +32,11 @@ final class Path implements PathInterface
 
     public function uploadPath(): string
     {
-        return $this->path . '/web/uploads';
+        return $this->path.'/web/uploads';
     }
 
     public function assetsPath(): string
     {
-        return $this->path . '/web/assets';
+        return $this->path.'/web/assets';
     }
 }

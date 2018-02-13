@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/**
+/*
  * Copyright (c) 2013-2018 OpenCFP
  *
  * For the full copyright and license information, please view
@@ -29,10 +29,10 @@ class RemoveSpeakerTable extends AbstractMigration
         $rows = $this->fetchAll('SELECT * FROM speakers');
 
         foreach ($rows as $row) {
-            $info      = \filter_var($row['info'], FILTER_SANITIZE_MAGIC_QUOTES);
-            $bio       = \filter_var($row['bio'], FILTER_SANITIZE_MAGIC_QUOTES);
+            $info = \filter_var($row['info'], FILTER_SANITIZE_MAGIC_QUOTES);
+            $bio = \filter_var($row['bio'], FILTER_SANITIZE_MAGIC_QUOTES);
             $photoPath = \filter_var($row['photo_path'], FILTER_SANITIZE_MAGIC_QUOTES);
-            $sql       = "UPDATE users SET info = '{$info}', bio = '{$bio}', photo_path = '{$photoPath}' WHERE id = {$row['user_id']}";
+            $sql = "UPDATE users SET info = '{$info}', bio = '{$bio}', photo_path = '{$photoPath}' WHERE id = {$row['user_id']}";
             $this->execute($sql);
         }
 
@@ -63,10 +63,10 @@ class RemoveSpeakerTable extends AbstractMigration
         $rows = $this->fetchAll('SELECT id, info, bio, photo_path FROM users');
 
         foreach ($rows as $row) {
-            $info      = \filter_var($row['info'], FILTER_SANITIZE_MAGIC_QUOTES);
-            $bio       = \filter_var($row['bio'], FILTER_SANITIZE_MAGIC_QUOTES);
+            $info = \filter_var($row['info'], FILTER_SANITIZE_MAGIC_QUOTES);
+            $bio = \filter_var($row['bio'], FILTER_SANITIZE_MAGIC_QUOTES);
             $photoPath = \filter_var($row['photo_path'], FILTER_SANITIZE_MAGIC_QUOTES);
-            $sql       = "INSERT INTO speakers (user_id, info, bio, photo_path)
+            $sql = "INSERT INTO speakers (user_id, info, bio, photo_path)
                 VALUES ({$row['user_id']}, '{$info}', '{$bio}', '{$photoPath}')";
             $this->execute($sql);
         }

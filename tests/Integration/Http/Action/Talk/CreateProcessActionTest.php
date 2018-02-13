@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -34,15 +34,15 @@ final class CreateProcessActionTest extends WebTestCase implements Transactional
             ->asLoggedInSpeaker($user->id)
             ->callForPapersIsOpen()
             ->post('/talk/create', [
-                'title'       => 'Test Title With Ampersand',
+                'title' => 'Test Title With Ampersand',
                 'description' => 'The title should contain this & that',
-                'type'        => 'regular',
-                'level'       => 'entry',
-                'category'    => 'other',
-                'desired'     => 0,
-                'user_id'     => $user->id,
-                'token'       => $csrfToken,
-                'token_id'    => 'speaker_talk',
+                'type' => 'regular',
+                'level' => 'entry',
+                'category' => 'other',
+                'desired' => 0,
+                'user_id' => $user->id,
+                'token' => $csrfToken,
+                'token_id' => 'speaker_talk',
             ]);
 
         $this->assertResponseIsRedirect($response);
@@ -64,7 +64,7 @@ final class CreateProcessActionTest extends WebTestCase implements Transactional
             ->asLoggedInSpeaker($user->id)
             ->callForPapersIsClosed()
             ->post('/talk/create', [
-                'token'    => $csrfToken,
+                'token' => $csrfToken,
                 'token_id' => 'speaker_talk',
             ]);
 
@@ -90,8 +90,8 @@ final class CreateProcessActionTest extends WebTestCase implements Transactional
             ->callForPapersIsOpen()
             ->post('/talk/create', [
                 'description' => 'Talk Description',
-                'token'       => $csrfToken,
-                'token_id'    => 'speaker_talk',
+                'token' => $csrfToken,
+                'token_id' => 'speaker_talk',
             ]);
 
         $this->assertResponseIsSuccessful($response);
@@ -109,8 +109,8 @@ final class CreateProcessActionTest extends WebTestCase implements Transactional
             ->callForPapersIsOpen()
             ->post('/talk/create', [
                 'description' => 'Talk Description',
-                'token'       => \uniqid(),
-                'token_id'    => 'speaker_talk',
+                'token' => \uniqid(),
+                'token_id' => 'speaker_talk',
             ]);
 
         $this->assertResponseIsRedirect($response);

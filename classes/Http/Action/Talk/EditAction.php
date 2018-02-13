@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -50,9 +50,9 @@ final class EditAction
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
         $this->authentication = $authentication;
-        $this->talkHelper     = $talkHelper;
-        $this->callForPapers  = $callForPapers;
-        $this->urlGenerator   = $urlGenerator;
+        $this->talkHelper = $talkHelper;
+        $this->callForPapers = $callForPapers;
+        $this->urlGenerator = $urlGenerator;
     }
 
     /**
@@ -64,9 +64,9 @@ final class EditAction
 
         if (!$this->callForPapers->isOpen()) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Read Only',
-                'ext'   => 'You cannot edit talks once the call for papers has ended',
+                'ext' => 'You cannot edit talks once the call for papers has ended',
             ]);
 
             $url = $this->urlGenerator->generate('talk_view', [
@@ -93,21 +93,21 @@ final class EditAction
         }
 
         return [
-            'formAction'     => $this->urlGenerator->generate('talk_update'),
+            'formAction' => $this->urlGenerator->generate('talk_update'),
             'talkCategories' => $this->talkHelper->getTalkCategories(),
-            'talkTypes'      => $this->talkHelper->getTalkTypes(),
-            'talkLevels'     => $this->talkHelper->getTalkLevels(),
-            'id'             => $talkId,
-            'title'          => \html_entity_decode($talk['title']),
-            'description'    => \html_entity_decode($talk['description']),
-            'type'           => $talk['type'],
-            'level'          => $talk['level'],
-            'category'       => $talk['category'],
-            'desired'        => $talk['desired'],
-            'slides'         => $talk['slides'],
-            'other'          => $talk['other'],
-            'sponsor'        => $talk['sponsor'],
-            'buttonInfo'     => 'Update my talk!',
+            'talkTypes' => $this->talkHelper->getTalkTypes(),
+            'talkLevels' => $this->talkHelper->getTalkLevels(),
+            'id' => $talkId,
+            'title' => \html_entity_decode($talk['title']),
+            'description' => \html_entity_decode($talk['description']),
+            'type' => $talk['type'],
+            'level' => $talk['level'],
+            'category' => $talk['category'],
+            'desired' => $talk['desired'],
+            'slides' => $talk['slides'],
+            'other' => $talk['other'],
+            'sponsor' => $talk['sponsor'],
+            'buttonInfo' => 'Update my talk!',
         ];
     }
 }

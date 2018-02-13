@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -20,7 +20,6 @@ use PHPUnit\Framework;
 use Prophecy\Argument;
 use Symfony\Component\HttpFoundation;
 use Symfony\Component\Routing;
-
 use Twig_Environment;
 
 final class LogInActionTest extends Framework\TestCase
@@ -31,7 +30,7 @@ final class LogInActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $email    = $faker->email;
+        $email = $faker->email;
         $password = $faker->password;
 
         $content = $faker->text;
@@ -44,9 +43,9 @@ final class LogInActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Error',
-                    'ext'   => $exceptionMessage,
+                    'ext' => $exceptionMessage,
                 ])
             )
             ->shouldBeCalled();
@@ -85,9 +84,9 @@ final class LogInActionTest extends Framework\TestCase
                 Argument::exact([
                     'email' => $email,
                     'flash' => [
-                        'type'  => 'error',
+                        'type' => 'error',
                         'short' => 'Error',
-                        'ext'   => $exceptionMessage,
+                        'ext' => $exceptionMessage,
                     ],
                 ])
             )
@@ -111,7 +110,7 @@ final class LogInActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $email    = $faker->email;
+        $email = $faker->email;
         $password = $faker->password;
 
         $url = $faker->url;

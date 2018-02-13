@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -64,12 +64,12 @@ final class ResetProcessActionTest extends Framework\TestCase
     public function providerEmptyResetCode(): array
     {
         $values = [
-            'array-empty'  => [],
-            'bool-false'   => false,
-            'int-zero'     => 0,
-            'null'         => null,
+            'array-empty' => [],
+            'bool-false' => false,
+            'int-zero' => 0,
+            'null' => null,
             'string-empty' => '',
-            'string-zero'  => '0',
+            'string-zero' => '0',
         ];
 
         return \array_map(function ($value) {
@@ -83,7 +83,7 @@ final class ResetProcessActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId    = $faker->numberBetween(1);
+        $userId = $faker->numberBetween(1);
         $resetCode = $faker->sha256;
 
         $content = $faker->text;
@@ -170,7 +170,7 @@ final class ResetProcessActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId    = $faker->numberBetween(1);
+        $userId = $faker->numberBetween(1);
         $resetCode = $faker->sha256;
 
         $content = $faker->text;
@@ -262,7 +262,7 @@ final class ResetProcessActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId    = $faker->numberBetween(1);
+        $userId = $faker->numberBetween(1);
         $resetCode = $faker->sha256;
 
         $url = $faker->url;
@@ -273,9 +273,9 @@ final class ResetProcessActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Error',
-                    'ext'   => 'The reset you have requested appears to be invalid, please try again.',
+                    'ext' => 'The reset you have requested appears to be invalid, please try again.',
                 ])
             )
             ->shouldBeCalled();
@@ -346,7 +346,7 @@ final class ResetProcessActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId    = $faker->numberBetween(1);
+        $userId = $faker->numberBetween(1);
         $resetCode = $faker->sha256;
 
         $url = $faker->url;
@@ -357,9 +357,9 @@ final class ResetProcessActionTest extends Framework\TestCase
             ->set(
                 Argument::exact('flash'),
                 Argument::exact([
-                    'type'  => 'error',
+                    'type' => 'error',
                     'short' => 'Error',
-                    'ext'   => 'The reset you have requested appears to be invalid, please try again.',
+                    'ext' => 'The reset you have requested appears to be invalid, please try again.',
                 ])
             )
             ->shouldBeCalled();
@@ -437,7 +437,7 @@ final class ResetProcessActionTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId    = $faker->numberBetween(1);
+        $userId = $faker->numberBetween(1);
         $resetCode = $faker->sha256;
 
         $url = $faker->url;

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -56,7 +56,7 @@ final class TalkTest extends WebTestCase implements TransactionalTestCase
     {
         /** @var TalkComment $meta */
         $comment = factory(TalkComment::class, 1)->create()->first();
-        $talk    = $comment->talk()->first();
+        $talk = $comment->talk()->first();
 
         $talk->delete();
         $this->assertCount(0, TalkComment::all());
@@ -69,7 +69,7 @@ final class TalkTest extends WebTestCase implements TransactionalTestCase
     {
         /** @var TalkComment $comment */
         $comment = factory(TalkComment::class, 1)->create()->first();
-        $talk    = $comment->talk()->first();
+        $talk = $comment->talk()->first();
 
         $talk->deleteComments();
         $this->assertCount(0, TalkComment::all());
@@ -83,7 +83,7 @@ final class TalkTest extends WebTestCase implements TransactionalTestCase
     {
         /** @var Favorite $favorite */
         $favorite = factory(Favorite::class, 1)->create()->first();
-        $talk     = $favorite->talk()->first();
+        $talk = $favorite->talk()->first();
 
         $talk->delete();
         $this->assertCount(0, Favorite::all());
@@ -96,7 +96,7 @@ final class TalkTest extends WebTestCase implements TransactionalTestCase
     {
         /** @var Favorite $favorite */
         $favorite = factory(Favorite::class, 1)->create()->first();
-        $talk     = $favorite->talk()->first();
+        $talk = $favorite->talk()->first();
 
         $talk->deleteFavorites();
         $this->assertCount(0, Favorite::all());

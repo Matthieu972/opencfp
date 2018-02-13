@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -42,9 +42,9 @@ final class IndexAction
 
         $content = $this->twig->render('reviewer/speaker/index.twig', [
             'pagination' => $pagination->createView('/reviewer/speakers?'),
-            'speakers'   => $pagination->getFanta(),
-            'page'       => $pagination->getCurrentPage(),
-            'search'     => $search ?: '',
+            'speakers' => $pagination->getFanta(),
+            'page' => $pagination->getCurrentPage(),
+            'search' => $search ?: '',
         ]);
 
         return new HttpFoundation\Response($content);

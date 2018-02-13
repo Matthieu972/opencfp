@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -34,7 +34,7 @@ final class SentinelAuthentication implements Authentication
 
     public function __construct(Sentinel $sentinel, AccountManagement $accountManagement)
     {
-        $this->sentinel          = $sentinel;
+        $this->sentinel = $sentinel;
         $this->accountManagement = $accountManagement;
     }
 
@@ -42,7 +42,7 @@ final class SentinelAuthentication implements Authentication
     {
         try {
             $success = false;
-            $user    = $this->accountManagement->findByLogin($username);
+            $user = $this->accountManagement->findByLogin($username);
 
             if ($user->checkPassword($password)) {
                 $success = $this->sentinel->login($user->getUser());

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -32,7 +32,7 @@ final class ProfileControllerTest extends WebTestCase implements TransactionalTe
 
         $response = $this
             ->asLoggedInSpeaker($speaker->id)
-            ->get('/profile/edit/' . $otherSpeaker->id);
+            ->get('/profile/edit/'.$otherSpeaker->id);
 
         $this->assertResponseBodyNotContains('My Profile', $response);
         $this->assertResponseIsRedirect($response);
@@ -48,7 +48,7 @@ final class ProfileControllerTest extends WebTestCase implements TransactionalTe
 
         $response = $this
             ->asLoggedInSpeaker($speaker->id)
-            ->get('/profile/edit/' . $speaker->id);
+            ->get('/profile/edit/'.$speaker->id);
 
         $this->assertResponseIsSuccessful($response);
     }
@@ -85,10 +85,10 @@ final class ProfileControllerTest extends WebTestCase implements TransactionalTe
         $response = $this
             ->asLoggedInSpeaker($speaker->id)
             ->post('/profile/edit', [
-                'id'         => $speaker->id,
-                'email'      => $this->faker()->word,
+                'id' => $speaker->id,
+                'email' => $this->faker()->word,
                 'first_name' => 'First',
-                'last_name'  => 'Last',
+                'last_name' => 'Last',
             ]);
 
         $this->assertResponseIsSuccessful($response);
@@ -107,10 +107,10 @@ final class ProfileControllerTest extends WebTestCase implements TransactionalTe
         $response = $this
             ->asLoggedInSpeaker($speaker->id)
             ->post('/profile/edit', [
-                'id'         => $speaker->id,
-                'email'      => $this->faker()->email,
+                'id' => $speaker->id,
+                'email' => $this->faker()->email,
                 'first_name' => 'First',
-                'last_name'  => 'Last',
+                'last_name' => 'Last',
             ]);
 
         $this->assertResponseBodyNotContains('My Profile', $response);

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -47,10 +47,10 @@ final class UpdatePasswordAction
         Twig_Environment $twig,
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
-        $this->resetForm         = $resetForm;
+        $this->resetForm = $resetForm;
         $this->accountManagement = $accountManagement;
-        $this->twig              = $twig;
-        $this->urlGenerator      = $urlGenerator;
+        $this->twig = $twig;
+        $this->urlGenerator = $urlGenerator;
     }
 
     /**
@@ -74,9 +74,9 @@ final class UpdatePasswordAction
 
         $data = $this->resetForm->getData();
 
-        $userId    = $data['user_id'];
+        $userId = $data['user_id'];
         $resetCode = $data['reset_code'];
-        $password  = $data['password'];
+        $password = $data['password'];
 
         if (empty($resetCode)) {
             throw new \Exception();
@@ -91,9 +91,9 @@ final class UpdatePasswordAction
 
         if ($user->checkPassword($password)) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'Please select a different password than your current one.',
+                'ext' => 'Please select a different password than your current one.',
             ]);
 
             $url = $this->urlGenerator->generate('login');
@@ -103,9 +103,9 @@ final class UpdatePasswordAction
 
         if (!$user->attemptResetPassword($resetCode, $password)) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'Password reset failed, please contact the administrator.',
+                'ext' => 'Password reset failed, please contact the administrator.',
             ]);
 
             $url = $this->urlGenerator->generate('homepage');
@@ -114,9 +114,9 @@ final class UpdatePasswordAction
         }
 
         $request->getSession()->set('flash', [
-            'type'  => 'success',
+            'type' => 'success',
             'short' => 'Success',
-            'ext'   => "You've successfully reset your password.",
+            'ext' => "You've successfully reset your password.",
         ]);
 
         $url = $this->urlGenerator->generate('login');

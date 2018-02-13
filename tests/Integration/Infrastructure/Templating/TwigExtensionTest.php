@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -37,13 +37,13 @@ final class TwigExtensionTest extends TestCase
         $routes->add('dashboard', new Route('/dashboard'));
         $urlGenerator = new UrlGenerator($routes, new RequestContext());
 
-        $twig = new \Twig_Environment(new \Twig_Loader_Filesystem(__DIR__ . '/Fixtures'));
+        $twig = new \Twig_Environment(new \Twig_Loader_Filesystem(__DIR__.'/Fixtures'));
         $twig->addExtension(new TwigExtension(
             $requestStack,
             $urlGenerator,
             $path
         ));
 
-        $this->assertStringEqualsFile(__DIR__ . '/Fixtures/functions.txt', $twig->render('functions.txt.twig'));
+        $this->assertStringEqualsFile(__DIR__.'/Fixtures/functions.txt', $twig->render('functions.txt.twig'));
     }
 }

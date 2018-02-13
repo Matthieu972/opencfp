@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -41,17 +41,17 @@ class TwigExtension extends Twig_Extension
     {
         $this->requestStack = $requestStack;
         $this->urlGenerator = $urlGenerator;
-        $this->path         = $path;
+        $this->path = $path;
     }
 
     public function getFunctions()
     {
         return [
             new Twig_SimpleFunction('uploads', function ($path) {
-                return $this->path->uploadPath() . $path;
+                return $this->path->uploadPath().$path;
             }),
             new Twig_SimpleFunction('assets', function ($path) {
-                return  $this->path->assetsPath() . $path;
+                return  $this->path->assetsPath().$path;
             }),
 
             new Twig_SimpleFunction('active', function ($route) {

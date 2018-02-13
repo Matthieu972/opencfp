@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -41,8 +41,8 @@ final class LogInAction
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
         $this->authentication = $authentication;
-        $this->twig           = $twig;
-        $this->urlGenerator   = $urlGenerator;
+        $this->twig = $twig;
+        $this->urlGenerator = $urlGenerator;
     }
 
     public function __invoke(HttpFoundation\Request $request): HttpFoundation\Response
@@ -54,9 +54,9 @@ final class LogInAction
             );
         } catch (Services\AuthenticationException $exception) {
             $flash = [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => $exception->getMessage(),
+                'ext' => $exception->getMessage(),
             ];
 
             $request->getSession()->set('flash', $flash);

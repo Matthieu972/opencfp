@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -33,11 +33,11 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function getSpeakerReturnsSpeakerProfile()
     {
-        $user          = m::mock(User::class);
-        $talk          = m::mock(Talk::class)->makePartial()->makePartial();
+        $user = m::mock(User::class);
+        $talk = m::mock(Talk::class)->makePartial()->makePartial();
         $talk->speaker = $user;
-        $talkProfile   = new TalkProfile($talk);
-        $speaker       = $talkProfile->getSpeaker();
+        $talkProfile = new TalkProfile($talk);
+        $speaker = $talkProfile->getSpeaker();
         $this->assertInstanceOf(SpeakerProfile::class, $speaker);
     }
 
@@ -46,8 +46,8 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function getIdReturnsId()
     {
-        $talk        = m::mock(Talk::class)->makePartial();
-        $talk->id    = 2;
+        $talk = m::mock(Talk::class)->makePartial();
+        $talk->id = 2;
         $talkProfile = new TalkProfile($talk);
         $this->assertSame($talk->id, $talkProfile->getId());
     }
@@ -57,7 +57,7 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function getTitleReturnsTitle()
     {
-        $talk        = m::mock(Talk::class)->makePartial();
+        $talk = m::mock(Talk::class)->makePartial();
         $talk->title = 'Title';
         $talkProfile = new TalkProfile($talk);
         $this->assertSame($talk->title, $talkProfile->getTitle());
@@ -68,9 +68,9 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function getDescriptionReturnsDescription()
     {
-        $talk              = m::mock(Talk::class)->makePartial();
+        $talk = m::mock(Talk::class)->makePartial();
         $talk->description = 'Describe the talk';
-        $talkProfile       = new TalkProfile($talk);
+        $talkProfile = new TalkProfile($talk);
         $this->assertSame($talk->description, $talkProfile->getDescription());
     }
 
@@ -79,7 +79,7 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function getOtherReturnsOther()
     {
-        $talk        = m::mock(Talk::class)->makePartial();
+        $talk = m::mock(Talk::class)->makePartial();
         $talk->other = 'Other information';
         $talkProfile = new TalkProfile($talk);
         $this->assertSame($talk->other, $talkProfile->getOther());
@@ -90,8 +90,8 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function getTypeReturnsType()
     {
-        $talk        = m::mock(Talk::class)->makePartial();
-        $talk->type  = 'api';
+        $talk = m::mock(Talk::class)->makePartial();
+        $talk->type = 'api';
         $talkProfile = new TalkProfile($talk);
         $this->assertSame($talk->type, $talkProfile->getType());
     }
@@ -101,7 +101,7 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function getLevelReturnsLevel()
     {
-        $talk        = m::mock(Talk::class)->makePartial();
+        $talk = m::mock(Talk::class)->makePartial();
         $talk->level = 'starter';
         $talkProfile = new TalkProfile($talk);
         $this->assertSame($talk->level, $talkProfile->getLevel());
@@ -112,9 +112,9 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function getCategoryReturnsCategory()
     {
-        $talk           = m::mock(Talk::class)->makePartial();
+        $talk = m::mock(Talk::class)->makePartial();
         $talk->category = 'blep';
-        $talkProfile    = new TalkProfile($talk);
+        $talkProfile = new TalkProfile($talk);
         $this->assertSame($talk->category, $talkProfile->getCategory());
     }
 
@@ -123,9 +123,9 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function getSlidesReturnsSlides()
     {
-        $talk         = m::mock(Talk::class)->makePartial();
+        $talk = m::mock(Talk::class)->makePartial();
         $talk->slides = 'http://www.example.com/slides.png';
-        $talkProfile  = new TalkProfile($talk);
+        $talkProfile = new TalkProfile($talk);
         $this->assertSame($talk->slides, $talkProfile->getSlides());
     }
 
@@ -134,10 +134,10 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function isDesiredReturnsBool()
     {
-        $talk          = m::mock(Talk::class)->makePartial();
+        $talk = m::mock(Talk::class)->makePartial();
         $talk->desired = 0;
-        $talkProfile   = new TalkProfile($talk);
-        $isDesired     = $talkProfile->isDesired();
+        $talkProfile = new TalkProfile($talk);
+        $isDesired = $talkProfile->isDesired();
         $this->assertFalse($isDesired);
     }
 
@@ -146,10 +146,10 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function isSponsorReturnsBool()
     {
-        $talk          = m::mock(Talk::class)->makePartial();
+        $talk = m::mock(Talk::class)->makePartial();
         $talk->sponsor = 1;
-        $talkProfile   = new TalkProfile($talk);
-        $isSponsor     = $talkProfile->isSponsor();
+        $talkProfile = new TalkProfile($talk);
+        $isSponsor = $talkProfile->isSponsor();
         $this->assertTrue($isSponsor);
     }
 
@@ -158,9 +158,9 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function isSpeakerFavoriteReturnsBool()
     {
-        $talk              = m::mock(Talk::class)->makePartial();
-        $talk->favorite    = 1;
-        $talkProfile       = new TalkProfile($talk);
+        $talk = m::mock(Talk::class)->makePartial();
+        $talk->favorite = 1;
+        $talkProfile = new TalkProfile($talk);
         $isSpeakerFavorite = $talkProfile->isSpeakerFavorite();
         $this->assertTrue($isSpeakerFavorite);
     }
@@ -170,10 +170,10 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
      */
     public function isSelectedReturnsBool()
     {
-        $talk           = m::mock(Talk::class)->makePartial();
+        $talk = m::mock(Talk::class)->makePartial();
         $talk->selected = 0;
-        $talkProfile    = new TalkProfile($talk);
-        $isSelected     = $talkProfile->isSelected();
+        $talkProfile = new TalkProfile($talk);
+        $isSelected = $talkProfile->isSelected();
         $this->assertFalse($isSelected);
     }
 
@@ -187,7 +187,7 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
         $talk = m::mock(Talk::class)->makePartial();
         $talk->shouldReceive('comments')->andReturn($many);
         $talkProfile = new TalkProfile($talk);
-        $comments    = $talkProfile->getComments();
+        $comments = $talkProfile->getComments();
         $this->assertInstanceOf(Collection::class, $comments);
         //The talk has no comments so it returns 0.
         $this->assertCount(0, $comments);
@@ -387,7 +387,7 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId      = $faker->unique()->numberBetween(1);
+        $userId = $faker->unique()->numberBetween(1);
         $adminUserId = $faker->unique()->numberBetween(1);
 
         $favorite = m::mock(Favorite::class);
@@ -426,7 +426,7 @@ final class TalkProfileTest extends \PHPUnit\Framework\TestCase
     {
         $faker = $this->faker();
 
-        $userId      = $faker->unique()->numberBetween(1);
+        $userId = $faker->unique()->numberBetween(1);
         $adminUserId = $faker->unique()->numberBetween(1);
 
         $favoriteOne = m::mock(Favorite::class);

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -50,7 +50,7 @@ class Talk extends Eloquent
     }
 
     /**
-     * Returns the most recent talks
+     * Returns the most recent talks.
      *
      * @param int $limit maximum ammount of entries to return
      */
@@ -135,7 +135,7 @@ class Talk extends Eloquent
     }
 
     /**
-     * Deletes all comments of the talk
+     * Deletes all comments of the talk.
      *
      * @throws \Exception
      */
@@ -151,7 +151,7 @@ class Talk extends Eloquent
     }
 
     /**
-     * Delets all favorites of the talk
+     * Delets all favorites of the talk.
      *
      * @throws \Exception
      */
@@ -167,7 +167,7 @@ class Talk extends Eloquent
     }
 
     /**
-     * Deletes all meta info of the talk
+     * Deletes all meta info of the talk.
      *
      * @throws \Exception
      */
@@ -202,7 +202,7 @@ class Talk extends Eloquent
     {
         return $this->meta()->firstOrCreate([
             'admin_user_id' => $userId,
-            'talk_id'       => $this->id,
+            'talk_id' => $this->id,
         ]);
     }
 

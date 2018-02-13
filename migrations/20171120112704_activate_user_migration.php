@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/**
+/*
  * Copyright (c) 2013-2018 OpenCFP
  *
  * For the full copyright and license information, please view
@@ -14,7 +14,6 @@ declare(strict_types=1);
 use Cartalyst\Sentinel\Native\Facades\Sentinel;
 use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Database\Capsule\Manager as Capsule;
-
 use Phinx\Migration\AbstractMigration;
 
 /**
@@ -28,11 +27,11 @@ class ActivateUserMigration extends AbstractMigration
 
     public function bootEloquent()
     {
-        $adapter       = $this->getAdapter()->getAdapter();
-        $options       = $adapter->getOptions();
+        $adapter = $this->getAdapter()->getAdapter();
+        $options = $adapter->getOptions();
         $this->capsule = new Capsule();
         $this->capsule->addConnection([
-            'driver'   => 'mysql',
+            'driver' => 'mysql',
             'database' => $options['name'],
         ]);
         $this->capsule->getConnection()->setPdo($adapter->getConnection());

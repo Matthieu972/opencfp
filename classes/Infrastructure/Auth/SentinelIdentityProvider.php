@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -34,12 +34,12 @@ final class SentinelIdentityProvider implements IdentityProvider
 
     public function __construct(Sentinel $sentinel, UserRepository $userRepository)
     {
-        $this->sentinel       = $sentinel;
+        $this->sentinel = $sentinel;
         $this->userRepository = $userRepository;
     }
 
     /**
-     * Retrieves the currently authenticated user
+     * Retrieves the currently authenticated user.
      *
      * @throws NotAuthenticatedException
      */

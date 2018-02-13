@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -31,7 +31,7 @@ final class SymfonySentinelSession implements SentinelSessionInterface
     public function __construct(SymfonySessionInterface $session, $key = null)
     {
         $this->session = $session;
-        $this->key     = $key ?: 'cartalyst_sentinel';
+        $this->key = $key ?: 'cartalyst_sentinel';
     }
 
     /**

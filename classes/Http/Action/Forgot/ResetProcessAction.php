@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -47,15 +47,15 @@ final class ResetProcessAction
         Twig_Environment $twig,
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
-        $this->resetForm         = $resetForm;
+        $this->resetForm = $resetForm;
         $this->accountManagement = $accountManagement;
-        $this->twig              = $twig;
-        $this->urlGenerator      = $urlGenerator;
+        $this->twig = $twig;
+        $this->urlGenerator = $urlGenerator;
     }
 
     public function __invoke(HttpFoundation\Request $request): HttpFoundation\Response
     {
-        $userId    = $request->get('user_id');
+        $userId = $request->get('user_id');
         $resetCode = $request->get('reset_code');
 
         if (empty($resetCode)) {
@@ -79,9 +79,9 @@ final class ResetProcessAction
             $user = $this->accountManagement->findById((int) $userId);
         } catch (\RuntimeException $e) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'The reset you have requested appears to be invalid, please try again.',
+                'ext' => 'The reset you have requested appears to be invalid, please try again.',
             ]);
 
             $url = $this->urlGenerator->generate('forgot_password');
@@ -91,9 +91,9 @@ final class ResetProcessAction
 
         if (!$user->checkResetPasswordCode($resetCode)) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'The reset you have requested appears to be invalid, please try again.',
+                'ext' => 'The reset you have requested appears to be invalid, please try again.',
             ]);
 
             $url = $this->urlGenerator->generate('forgot_password');

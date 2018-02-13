@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -47,7 +47,7 @@ final class MockAuthentication implements Authentication
     public function overrideUser(UserInterface $user)
     {
         $this->isAuthenticated = true;
-        $this->user            = $user;
+        $this->user = $user;
     }
 
     /**
@@ -56,7 +56,7 @@ final class MockAuthentication implements Authentication
     public function overrideUnauthenticated()
     {
         $this->isAuthenticated = false;
-        $this->user            = null;
+        $this->user = null;
     }
 
     /**

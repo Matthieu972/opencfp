@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -31,7 +31,7 @@ final class TalkFilterTest extends Framework\TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->talk      = Mockery::mock(Talk::class);
+        $this->talk = Mockery::mock(Talk::class);
         $this->formatter = Mockery::mock(TalkFormatter::class);
     }
 
@@ -41,7 +41,7 @@ final class TalkFilterTest extends Framework\TestCase
     public function getFilteredTalksWithoutAFilterReturnsTheTalksObject()
     {
         $filter = new TalkFilter(new TalkFormatter(), $this->talk);
-        $talk   = $filter->getFilteredTalks(1);
+        $talk = $filter->getFilteredTalks(1);
         $this->assertSame($this->talk, $talk);
     }
 
@@ -51,7 +51,7 @@ final class TalkFilterTest extends Framework\TestCase
     public function getFilteredTalksWithANonsenseFilterReturnsTheTalkObject()
     {
         $filter = new TalkFilter(new TalkFormatter(), $this->talk);
-        $talk   = $filter->getFilteredTalks(1, 'secrets');
+        $talk = $filter->getFilteredTalks(1, 'secrets');
         $this->assertSame($this->talk, $talk);
     }
 
@@ -62,7 +62,7 @@ final class TalkFilterTest extends Framework\TestCase
     {
         $this->talk->shouldReceive('selected')->andReturn('gotSelected');
         $filter = new TalkFilter(new TalkFormatter(), $this->talk);
-        $talk   = $filter->getFilteredTalks(1, 'selEcteD');
+        $talk = $filter->getFilteredTalks(1, 'selEcteD');
         $this->assertSame('gotSelected', $talk);
     }
 
@@ -73,7 +73,7 @@ final class TalkFilterTest extends Framework\TestCase
     {
         $this->talk->shouldReceive('topRated')->andReturn('gotTopRated');
         $filter = new TalkFilter(new TalkFormatter(), $this->talk);
-        $talk   = $filter->getFilteredTalks(1, 'toprated');
+        $talk = $filter->getFilteredTalks(1, 'toprated');
         $this->assertSame('gotTopRated', $talk);
     }
 
@@ -87,7 +87,7 @@ final class TalkFilterTest extends Framework\TestCase
         $this->talk->shouldReceive('viewedBy')->andReturn('gotviewed');
         $this->talk->shouldReceive('favoritedBy')->andReturn('gotfavorited');
         $filter = new TalkFilter(new TalkFormatter(), $this->talk);
-        $talk   = $filter->getFilteredTalks(1, 'notrated');
+        $talk = $filter->getFilteredTalks(1, 'notrated');
         $this->assertSame('gotnotrated', $talk);
         $talk = $filter->getFilteredTalks(1, 'plusone');
         $this->assertSame('gotplusone', $talk);

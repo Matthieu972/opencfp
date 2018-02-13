@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -57,7 +57,7 @@ final class SpeakersControllerTest extends WebTestCase implements TransactionalT
 
         $response = $this
             ->asAdmin($admin->id)
-            ->get('/admin/speakers/' . $speaker->id);
+            ->get('/admin/speakers/'.$speaker->id);
 
         $this->assertResponseIsSuccessful($response);
         $this->assertResponseBodyContains($speaker->first_name, $response);
@@ -74,7 +74,7 @@ final class SpeakersControllerTest extends WebTestCase implements TransactionalT
 
         $response = $this
             ->asAdmin($admin->id)
-            ->get('/admin/speakers/' . $this->faker()->numberBetween(500));
+            ->get('/admin/speakers/'.$this->faker()->numberBetween(500));
 
         $this->assertResponseBodyNotContains('Other Information', $response);
 
@@ -103,8 +103,8 @@ final class SpeakersControllerTest extends WebTestCase implements TransactionalT
                     $this->faker()->numberBetween(500)
                 ),
                 [
-                    'role'     => 'Admin',
-                    'token'    => $csrfToken,
+                    'role' => 'Admin',
+                    'token' => $csrfToken,
                     'token_id' => 'admin_speaker_demote',
                 ]
             );
@@ -128,9 +128,9 @@ final class SpeakersControllerTest extends WebTestCase implements TransactionalT
 
         $response = $this
             ->asAdmin($admin->id)
-            ->get('/admin/speakers/' . $admin->id . '/demote', [
-                'role'     => 'Admin',
-                'token'    => $csrfToken,
+            ->get('/admin/speakers/'.$admin->id.'/demote', [
+                'role' => 'Admin',
+                'token' => $csrfToken,
                 'token_id' => 'admin_speaker_demote',
             ]);
 
@@ -140,7 +140,7 @@ final class SpeakersControllerTest extends WebTestCase implements TransactionalT
     }
 
     /**
-     * A Bit of mocking here so we don't depend on what accounts are actually admin or not
+     * A Bit of mocking here so we don't depend on what accounts are actually admin or not.
      *
      * @test
      */
@@ -163,9 +163,9 @@ final class SpeakersControllerTest extends WebTestCase implements TransactionalT
 
         $response = $this
             ->asAdmin($admin->id)
-            ->get('/admin/speakers/' . $speaker->id . '/demote', [
-                'role'     => 'Admin',
-                'token'    => $csrfToken,
+            ->get('/admin/speakers/'.$speaker->id.'/demote', [
+                'role' => 'Admin',
+                'token' => $csrfToken,
                 'token_id' => 'admin_speaker_demote',
             ]);
 
@@ -192,9 +192,9 @@ final class SpeakersControllerTest extends WebTestCase implements TransactionalT
 
         $response = $this
             ->asAdmin($admin->id)
-            ->get('/admin/speakers/' . $speaker->id . '/demote', [
-                'role'     => 'Admin',
-                'token'    => \uniqid(),
+            ->get('/admin/speakers/'.$speaker->id.'/demote', [
+                'role' => 'Admin',
+                'token' => \uniqid(),
                 'token_id' => 'admin_speaker_demote',
             ]);
 
@@ -215,7 +215,7 @@ final class SpeakersControllerTest extends WebTestCase implements TransactionalT
 
         $response = $this
             ->asAdmin($user->id)
-            ->get('/admin/speakers/delete/' . $otherUser->id . '?token_id=admin_speaker_demote&token=' . \uniqid());
+            ->get('/admin/speakers/delete/'.$otherUser->id.'?token_id=admin_speaker_demote&token='.\uniqid());
 
         $this->assertResponseIsRedirect($response);
         $this->assertRedirectResponseUrlContains('/dashboard', $response);

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -20,7 +20,7 @@ use Symfony\Component\Console\Output\BufferedOutput;
 
 /**
  * This test makes sure our migrations work correctly.
- * There is no test for migrating 'down' all the way, since that is known to be broken
+ * There is no test for migrating 'down' all the way, since that is known to be broken.
  */
 final class MigrationsTest extends WebTestCase
 {
@@ -30,7 +30,7 @@ final class MigrationsTest extends WebTestCase
     public function migrateUpHasNoErrors()
     {
         //We need to drop the DB beforehand, since it is seeded through a dump file normally.
-        $output  = $this->migrateTo();
+        $output = $this->migrateTo();
         $content = $output->fetch();
 
         //Check for some specifics first so we have a bit more info if something goes wrong
@@ -47,12 +47,12 @@ final class MigrationsTest extends WebTestCase
         $this->dropAndCreateDatabase();
 
         $inputArg = $target !== '' ?
-            ['phinx', 'migrate', '--target=' . $target] :
+            ['phinx', 'migrate', '--target='.$target] :
             ['phinx', 'migrate'];
 
-        $input  = new ArgvInput($inputArg);
+        $input = new ArgvInput($inputArg);
         $output = new BufferedOutput();
-        $phinx  = new PhinxApplication();
+        $phinx = new PhinxApplication();
 
         $phinx->setAutoExit(false);
         $phinx->run($input, $output);

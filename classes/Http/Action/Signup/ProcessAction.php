@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -47,17 +47,17 @@ final class ProcessAction
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
         $this->authentication = $authentication;
-        $this->accounts       = $accounts;
-        $this->urlGenerator   = $urlGenerator;
+        $this->accounts = $accounts;
+        $this->urlGenerator = $urlGenerator;
     }
 
     public function __invoke(HttpFoundation\Request $request): HttpFoundation\Response
     {
         try {
             $this->validate($request, [
-                'email'    => 'required|email',
+                'email' => 'required|email',
                 'password' => 'required',
-                'coc'      => 'accepted',
+                'coc' => 'accepted',
             ]);
 
             $this->accounts->create(
@@ -71,9 +71,9 @@ final class ProcessAction
             $this->accounts->activate($request->get('email'));
 
             $request->getSession()->set('flash', [
-                'type'  => 'success',
+                'type' => 'success',
                 'short' => 'Success',
-                'ext'   => "You've successfully created your account!",
+                'ext' => "You've successfully created your account!",
             ]);
 
             $this->authentication->authenticate(
@@ -86,17 +86,17 @@ final class ProcessAction
             return new HttpFoundation\RedirectResponse($url);
         } catch (ValidationException $e) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => $e->getMessage(),
-                'ext'   => $e->errors(),
+                'ext' => $e->errors(),
             ]);
 
             return new HttpFoundation\RedirectResponse($request->headers->get('referer'));
         } catch (\RuntimeException $e) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => 'A user already exists with that email address',
+                'ext' => 'A user already exists with that email address',
             ]);
 
             return new HttpFoundation\RedirectResponse($request->headers->get('referer'));
@@ -119,7 +119,7 @@ final class ProcessAction
             new Translation\Translator(
                 new Translation\FileLoader(
                     new Filesystem(),
-                    __DIR__ . '/../../../resources/lang'
+                    __DIR__.'/../../../resources/lang'
                 ),
                 'en'
             ),

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -36,7 +36,7 @@ class TalksController extends BaseController
     }
 
     /**
-     * Set Favorited Talk [POST]
+     * Set Favorited Talk [POST].
      *
      * @param Request $request Request Object
      *
@@ -52,7 +52,7 @@ class TalksController extends BaseController
     }
 
     /**
-     * Set Selected Talk [POST]
+     * Set Selected Talk [POST].
      *
      * @param Request $request Request Object
      *
@@ -76,9 +76,9 @@ class TalksController extends BaseController
             ->commentOn($request->get('comment'));
 
         $request->getSession()->set('flash', [
-            'type'  => 'success',
+            'type' => 'success',
             'short' => 'Success',
-            'ext'   => 'Comment Added!',
+            'ext' => 'Comment Added!',
         ]);
 
         return new RedirectResponse($this->url('admin_talk_view', ['id' => $talkId]));

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/**
+/*
  * Copyright (c) 2013-2018 OpenCFP
  *
  * For the full copyright and license information, please view
@@ -22,11 +22,11 @@ class UserRolesMigration extends AbstractMigration
 
     public function bootEloquent()
     {
-        $adapter       = $this->getAdapter()->getAdapter();
-        $options       = $adapter->getOptions();
+        $adapter = $this->getAdapter()->getAdapter();
+        $options = $adapter->getOptions();
         $this->capsule = new Capsule();
         $this->capsule->addConnection([
-            'driver'   => 'mysql',
+            'driver' => 'mysql',
             'database' => $options['name'],
         ]);
         $this->capsule->getConnection()->setPdo($adapter->getConnection());
@@ -59,9 +59,9 @@ class UserRolesMigration extends AbstractMigration
     private function getRoleIds($role)
     {
         try {
-            $con       = $this->capsule->getConnection();
+            $con = $this->capsule->getConnection();
             $roleGroup = $con->query()->from('groups')->where('name', $role)->first();
-            $roleIds   = $con->query()->from('users_groups')->where('group_id', $roleGroup->id)->get();
+            $roleIds = $con->query()->from('users_groups')->where('group_id', $roleGroup->id)->get();
 
             return $roleIds->transform(function ($role) {
                 return $role->user_id;
@@ -74,9 +74,9 @@ class UserRolesMigration extends AbstractMigration
     private function promoteSpeakers()
     {
         $roleIds = \array_merge($this->getRoleIds('Admin'), $this->getRoleIds('Reviewer'));
-        $users   = \Cartalyst\Sentinel\Users\EloquentUser::all();
-        $users   = $users->whereNotIn('id', $roleIds);
-        $role    = Sentinel::findRoleByName('Speaker');
+        $users = \Cartalyst\Sentinel\Users\EloquentUser::all();
+        $users = $users->whereNotIn('id', $roleIds);
+        $role = Sentinel::findRoleByName('Speaker');
 
         foreach ($users as $user) {
             $role->users()->attach($user->id);

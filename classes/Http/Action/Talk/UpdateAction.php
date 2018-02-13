@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -89,15 +89,15 @@ final class UpdateAction
         string $applicationTitle,
         string $applicationEndDate
     ) {
-        $this->authentication     = $authentication;
-        $this->talkHelper         = $talkHelper;
-        $this->callForPapers      = $callForPapers;
-        $this->purifier           = $purifier;
-        $this->swiftMailer        = $swiftMailer;
-        $this->twig               = $twig;
-        $this->urlGenerator       = $urlGenerator;
-        $this->applicationEmail   = $applicationEmail;
-        $this->applicationTitle   = $applicationTitle;
+        $this->authentication = $authentication;
+        $this->talkHelper = $talkHelper;
+        $this->callForPapers = $callForPapers;
+        $this->purifier = $purifier;
+        $this->swiftMailer = $swiftMailer;
+        $this->twig = $twig;
+        $this->urlGenerator = $urlGenerator;
+        $this->applicationEmail = $applicationEmail;
+        $this->applicationTitle = $applicationTitle;
         $this->applicationEndDate = $applicationEndDate;
     }
 
@@ -105,9 +105,9 @@ final class UpdateAction
     {
         if (!$this->callForPapers->isOpen()) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Read Only',
-                'ext'   => 'You cannot edit talks once the call for papers has ended',
+                'ext' => 'You cannot edit talks once the call for papers has ended',
             ]);
 
             $url = $this->urlGenerator->generate('talk_view', [
@@ -120,17 +120,17 @@ final class UpdateAction
         $user = $this->authentication->user();
 
         $requestData = [
-            'id'          => $request->get('id'),
-            'title'       => $request->get('title'),
+            'id' => $request->get('id'),
+            'title' => $request->get('title'),
             'description' => $request->get('description'),
-            'type'        => $request->get('type'),
-            'level'       => $request->get('level'),
-            'category'    => $request->get('category'),
-            'desired'     => $request->get('desired'),
-            'slides'      => $request->get('slides'),
-            'other'       => $request->get('other'),
-            'sponsor'     => $request->get('sponsor'),
-            'user_id'     => $request->get('user_id'),
+            'type' => $request->get('type'),
+            'level' => $request->get('level'),
+            'category' => $request->get('category'),
+            'desired' => $request->get('desired'),
+            'slides' => $request->get('slides'),
+            'other' => $request->get('other'),
+            'sponsor' => $request->get('sponsor'),
+            'user_id' => $request->get('user_id'),
         ];
 
         $form = $this->createTalkForm($requestData);
@@ -146,9 +146,9 @@ final class UpdateAction
 
             if ($talk->update($sanitizedData)) {
                 $request->getSession()->set('flash', [
-                    'type'  => 'success',
+                    'type' => 'success',
                     'short' => 'Success',
-                    'ext'   => 'Successfully saved talk.',
+                    'ext' => 'Successfully saved talk.',
                 ]);
 
                 $this->sendSubmitEmail(
@@ -163,28 +163,28 @@ final class UpdateAction
         }
 
         $request->getSession()->set('flash', [
-            'type'  => 'error',
+            'type' => 'error',
             'short' => 'Error',
-            'ext'   => \implode('<br>', $form->getErrorMessages()),
+            'ext' => \implode('<br>', $form->getErrorMessages()),
         ]);
 
         $content = $this->twig->render('talk/edit.twig', [
-            'formAction'     => $this->urlGenerator->generate('talk_update'),
+            'formAction' => $this->urlGenerator->generate('talk_update'),
             'talkCategories' => $this->talkHelper->getTalkCategories(),
-            'talkTypes'      => $this->talkHelper->getTalkTypes(),
-            'talkLevels'     => $this->talkHelper->getTalkLevels(),
-            'id'             => $request->get('id'),
-            'title'          => $request->get('title'),
-            'description'    => $request->get('description'),
-            'type'           => $request->get('type'),
-            'level'          => $request->get('level'),
-            'category'       => $request->get('category'),
-            'desired'        => $request->get('desired'),
-            'slides'         => $request->get('slides'),
-            'other'          => $request->get('other'),
-            'sponsor'        => $request->get('sponsor'),
-            'buttonInfo'     => 'Update my talk!',
-            'flash'          => $request->getSession()->get('flash'),
+            'talkTypes' => $this->talkHelper->getTalkTypes(),
+            'talkLevels' => $this->talkHelper->getTalkLevels(),
+            'id' => $request->get('id'),
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'type' => $request->get('type'),
+            'level' => $request->get('level'),
+            'category' => $request->get('category'),
+            'desired' => $request->get('desired'),
+            'slides' => $request->get('slides'),
+            'other' => $request->get('other'),
+            'sponsor' => $request->get('sponsor'),
+            'buttonInfo' => 'Update my talk!',
+            'flash' => $request->getSession()->get('flash'),
         ]);
 
         return new HttpFoundation\Response($content);
@@ -194,8 +194,8 @@ final class UpdateAction
     {
         return new Form\TalkForm($requestData, $this->purifier, [
             'categories' => $this->talkHelper->getTalkCategories(),
-            'levels'     => $this->talkHelper->getTalkLevels(),
-            'types'      => $this->talkHelper->getTalkTypes(),
+            'levels' => $this->talkHelper->getTalkLevels(),
+            'types' => $this->talkHelper->getTalkTypes(),
         ]);
     }
 
@@ -205,9 +205,9 @@ final class UpdateAction
         $template = $this->twig->loadTemplate('emails/talk_submit.twig');
 
         $parameters = [
-            'email'   => $this->applicationEmail,
-            'title'   => $this->applicationTitle,
-            'talk'    => $talk->title,
+            'email' => $this->applicationEmail,
+            'title' => $this->applicationTitle,
+            'talk' => $talk->title,
             'enddate' => $this->applicationEndDate,
         ];
 

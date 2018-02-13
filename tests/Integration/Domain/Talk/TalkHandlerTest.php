@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -41,7 +41,7 @@ final class TalkHandlerTest extends WebTestCase implements TransactionalTestCase
         $auth = Mockery::mock(Authentication::class);
         $auth->shouldReceive('user')->andReturn($user);
         $this->authentication = $auth;
-        $ratingSystem         = Mockery::mock(TalkRatingStrategy::class);
+        $ratingSystem = Mockery::mock(TalkRatingStrategy::class);
         $ratingSystem->shouldReceive('rate');
         $this->ratingSystem = $ratingSystem;
     }
@@ -174,7 +174,7 @@ final class TalkHandlerTest extends WebTestCase implements TransactionalTestCase
         $talk->shouldReceive('getMetaFor')->andReturnSelf();
         $talk->shouldReceive('save')->andReturn(true);
         $talk->viewed = 0;
-        $talkHandler  = new TalkHandler($this->authentication, $this->ratingSystem);
+        $talkHandler = new TalkHandler($this->authentication, $this->ratingSystem);
         $talkHandler->with($talk);
 
         $this->assertTrue($talkHandler->view());

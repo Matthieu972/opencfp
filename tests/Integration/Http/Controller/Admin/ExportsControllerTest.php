@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -122,7 +122,7 @@ final class ExportsControllerTest extends WebTestCase implements TransactionalTe
     }
 
     /**
-     * This test assures that entries with that start with a formula character get prepended with a '
+     * This test assures that entries with that start with a formula character get prepended with a '.
      *
      * @test
      */

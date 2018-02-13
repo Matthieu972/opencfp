@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -35,21 +35,21 @@ final class PromoteAction
         Routing\Generator\UrlGeneratorInterface $urlGenerator
     ) {
         $this->accountManagement = $accountManagement;
-        $this->urlGenerator      = $urlGenerator;
+        $this->urlGenerator = $urlGenerator;
     }
 
     public function __invoke(HttpFoundation\Request $request): HttpFoundation\Response
     {
         $role = $request->get('role');
-        $id   = (int) $request->get('id');
+        $id = (int) $request->get('id');
 
         try {
             $user = $this->accountManagement->findById($id);
         } catch (Auth\UserNotFoundException $exception) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => \sprintf(
+                'ext' => \sprintf(
                     'User with id "%s" could not be found.',
                     $id
                 ),
@@ -62,9 +62,9 @@ final class PromoteAction
 
         if ($user->hasAccess(\strtolower($role))) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => \sprintf(
+                'ext' => \sprintf(
                     'User already is in the "%s" group.',
                     $role
                 ),
@@ -82,9 +82,9 @@ final class PromoteAction
             );
         } catch (Auth\RoleNotFoundException $exception) {
             $request->getSession()->set('flash', [
-                'type'  => 'error',
+                'type' => 'error',
                 'short' => 'Error',
-                'ext'   => \sprintf(
+                'ext' => \sprintf(
                     'Role "%s" could not be found.',
                     $role
                 ),
@@ -96,9 +96,9 @@ final class PromoteAction
         }
 
         $request->getSession()->set('flash', [
-            'type'  => 'success',
+            'type' => 'success',
             'short' => 'Success',
-            'ext'   => '',
+            'ext' => '',
         ]);
 
         $url = $this->urlGenerator->generate('admin_speakers');

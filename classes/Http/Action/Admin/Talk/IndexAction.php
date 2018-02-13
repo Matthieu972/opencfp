@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -33,7 +33,7 @@ final class IndexAction
     public function __construct(Services\Authentication $authentication, Talk\TalkFilter $talkFilter)
     {
         $this->authentication = $authentication;
-        $this->talkFilter     = $talkFilter;
+        $this->talkFilter = $talkFilter;
     }
 
     /**
@@ -51,7 +51,7 @@ final class IndexAction
 
         $options = [
             'order_by' => $request->get('order_by'),
-            'sort'     => $request->get('sort'),
+            'sort' => $request->get('sort'),
         ];
 
         $formattedTalks = $this->talkFilter->getTalks(
@@ -74,14 +74,14 @@ final class IndexAction
                 '/admin/talks?',
                 $request->query->all()
             ),
-            'talks'        => $pagination->getFanta(),
-            'page'         => $pagination->getCurrentPage(),
+            'talks' => $pagination->getFanta(),
+            'page' => $pagination->getCurrentPage(),
             'current_page' => $request->getRequestUri(),
             'totalRecords' => \count($formattedTalks),
-            'filter'       => $request->get('filter'),
-            'per_page'     => $perPage,
-            'sort'         => $request->get('sort'),
-            'order_by'     => $request->get('order_by'),
+            'filter' => $request->get('filter'),
+            'per_page' => $perPage,
+            'sort' => $request->get('sort'),
+            'order_by' => $request->get('order_by'),
         ];
     }
 }

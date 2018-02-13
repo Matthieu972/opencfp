@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2013-2018 OpenCFP
+ * Copyright (c) 2013-2018 OpenCFP.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -34,7 +34,7 @@ final class SentinelUserTest extends WebTestCase implements TransactionalTestCas
         $account = new SentinelAccountManagement((new Sentinel())->getSentinel());
         $account->create('test@example.com', 'secret', [
             'first_name' => 'Test',
-            'last_name'  => 'Account',
+            'last_name' => 'Account',
         ]);
 
         $this->user = $account->findByLogin('test@example.com');
@@ -71,7 +71,7 @@ final class SentinelUserTest extends WebTestCase implements TransactionalTestCas
 
         $capsule->getConnection()->query()->from('reminders')->insert([
             'user_id' => $this->user->getId(),
-            'code'    => 'secret.reset.code',
+            'code' => 'secret.reset.code',
         ]);
 
         $this->assertFalse($this->user->checkResetPasswordCode('wrong.code'));
@@ -88,7 +88,7 @@ final class SentinelUserTest extends WebTestCase implements TransactionalTestCas
 
         $capsule->getConnection()->query()->from('reminders')->insert([
             'user_id' => $this->user->getId(),
-            'code'    => 'secret.reset.code',
+            'code' => 'secret.reset.code',
         ]);
 
         $this->assertTrue($this->user->checkResetPasswordCode('secret.reset.code'));
@@ -116,7 +116,7 @@ final class SentinelUserTest extends WebTestCase implements TransactionalTestCas
 
         $capsule->getConnection()->query()->from('reminders')->insert([
             'user_id' => $this->user->getId(),
-            'code'    => 'secret.reset.code',
+            'code' => 'secret.reset.code',
         ]);
 
         $result = $this->user->attemptResetPassword('wrong code', 'newPass1');

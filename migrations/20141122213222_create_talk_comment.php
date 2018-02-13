@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/**
+/*
  * Copyright (c) 2013-2018 OpenCFP
  *
  * For the full copyright and license information, please view
@@ -16,7 +16,7 @@ use Phinx\Migration\AbstractMigration;
 class CreateTalkComment extends AbstractMigration
 {
     /**
-     * Create Talk Comment Table
+     * Create Talk Comment Table.
      */
     public function change()
     {
